@@ -17,7 +17,11 @@
         $lvl = $this->session->userdata('level');
         $jab = $this->session->userdata('jab');
         if ($lvl == '4') {
-          $this->load->view('layout/sidenav_pengurus');
+          if ($jab == 'Ketua') {
+            $this->load->view('layout/sidenav_pengurus');
+          } elseif ($jab == 'Bendahara') {
+            $this->load->view('layout/sidenav_bendahara');
+          }
         } elseif ($lvl == '1') {
           $this->load->view('layout/sidenav_admin');
         }

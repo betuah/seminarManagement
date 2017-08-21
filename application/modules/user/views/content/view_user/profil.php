@@ -24,7 +24,7 @@
 </div>
 <!-- end row -->
 <section>
-<?php 
+<?php
 	if(!empty($get_v_user))
 		foreach ($get_v_user as $v_user){}
 ?>
@@ -37,7 +37,7 @@
   			<div class="panel-body">
     			<div class="row">
   					<div class="col-md-4">
-  						<img src="<?php echo base_url().'assets/smartadmin/img/avatars/male.png'?>" 
+  						<img src="<?php echo base_url().'assets/smartadmin/img/avatars/male.png'?>"
 							style="height:150px;max-width:150px;">
 						<!--<img src="<?php echo base_url()?>assets/img/<?php $v_user['img']; ?>" height="100px">-->
 						<div class="padding-10" hidden="">
@@ -66,7 +66,7 @@
   						<h5><?php echo $v_user['jekel'] ?></h5>
   						<label><i class="fa fa-envelope"></i> &nbsp <?php echo $v_user['email'] ?></label><br>
   						<label><i class="fa fa-phone"></i> &nbsp <?php echo $v_user['no_tlpn'] ?></label><br>
-  						<label><i class="fa fa-home"></i> &nbsp <?php echo $v_user['alamat'] ?></label>
+  						<label><i class="fa fa-home"></i> &nbsp <?php echo $v_user['alamat_usr'] ?></label>
   					</div>
 				</div>
   			</div>

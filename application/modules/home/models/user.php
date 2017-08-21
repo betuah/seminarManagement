@@ -43,37 +43,59 @@
 
     function tambah_user() {
         if ($id_usr       = $this->input->post('nim')) {
+          $data = array(
+      						'id_usr' => $this->input->post('nim', TRUE)
+      		);
+          $r      = $this->db->get_where('tb_usr', $data);
 
-            $id_usr       = $this->input->post('nim');
-            $nama_usr     = $this->input->post('nama_usr');
-            $password     = $this->input->post('password');
-            $email        = $this->input->post('email');
-            $jekel        = $this->input->post('jekel');
-            $no_tlpn      = $this->input->post('no_tlpn');
-            $alamat       = $this->input->post('alamat');
-            $tgl_daftar   = $this->input->post('tgl_daftar');
-            $id_type_usr  = $this->input->post('id_type_usr');
-            $ket          = $this->input->post('ket');
-            $id_type_usr ='3';
-            $ket ='mahasiswa';
-
-            $data = array (
-            'id_usr'        => $id_usr,
-            'nama_usr'      => $nama_usr,
-            'password'      => md5($password),
-            'email'         => $email,
-            'jekel'         => $jekel,
-            'no_tlpn'       => $no_tlpn,
-            'alamat_usr'    => $alamat,
-            'tgl_daftar'    => date("Y-m-d"),
-            'id_type_usr'   => $id_type_usr,
-            'ket'           => $ket
-        );
-        $this->db->insert('tb_usr',$data);
+          if ($r->num_rows() == 1) {
+            echo $mssg = "<SCRIPT LANGUAGE='JavaScript'>
+                  window.alert('Username atau NIM yang Anda masukan sudah terdaftar silahkan masukan kembali Username atau NIM yang berbeda')
+                  window.location.href='".base_url()."';
+                  </SCRIPT>";
+          } else {
+            echo "string";
+            // $id_usr       = $this->input->post('nim');
+            // $nama_usr     = $this->input->post('nama_usr');
+            // $password     = $this->input->post('password');
+            // $email        = $this->input->post('email');
+            // $jekel        = $this->input->post('jekel');
+            // $no_tlpn      = $this->input->post('no_tlpn');
+            // $alamat       = $this->input->post('alamat');
+            // $tgl_daftar   = $this->input->post('tgl_daftar');
+            // $id_type_usr  = $this->input->post('id_type_usr');
+            // $ket          = $this->input->post('ket');
+            // $id_type_usr ='3';
+            // $ket ='mahasiswa';
+            //
+            // $data = array (
+            // 'id_usr'        => $id_usr,
+            // 'nama_usr'      => $nama_usr,
+            // 'password'      => md5($password),
+            // 'email'         => $email,
+            // 'jekel'         => $jekel,
+            // 'no_tlpn'       => $no_tlpn,
+            // 'alamat_usr'    => $alamat,
+            // 'tgl_daftar'    => date("Y-m-d"),
+            // 'id_type_usr'   => $id_type_usr,
+            // 'ket'           => $ket
+            // );
+            // $this->db->insert('tb_usr',$data);
+          }
     }
 
     elseif ($id_usr       = $this->input->post('nidn')) {
+      $data = array(
+              'id_usr' => $this->input->post('nidn', TRUE)
+      );
+      $r      = $this->db->get_where('tb_usr', $data);
 
+      if ($r->num_rows() == 1) {
+        echo $mssg = "<SCRIPT LANGUAGE='JavaScript'>
+              window.alert('Username atau NIM yang Anda masukan sudah terdaftar silahkan masukan kembali Username atau NIM yang berbeda')
+              window.location.href='".base_url()."';
+              </SCRIPT>";
+      } else {
             $id_usr       = $this->input->post('nidn');
             $nama_usr     = $this->input->post('nama_usr');
             $password     = $this->input->post('password');
@@ -100,10 +122,21 @@
             'ket'           => $ket
         );
         $this->db->insert('tb_usr',$data);
+      }
     }
 
     elseif ($id_usr       = $this->input->post('email')) {
+      $data = array(
+              'id_usr' => $this->input->post('email', TRUE)
+      );
+      $r      = $this->db->get_where('tb_usr', $data);
 
+      if ($r->num_rows() == 1) {
+        echo $mssg = "<SCRIPT LANGUAGE='JavaScript'>
+              window.alert('Username atau NIM yang Anda masukan sudah terdaftar silahkan masukan kembali Username atau NIM yang berbeda')
+              window.location.href='".base_url()."';
+              </SCRIPT>";
+      } else {
             $id_usr       = $this->input->post('email');
             $nama_usr     = $this->input->post('nama_usr');
             $email        = $this->input->post('email');
@@ -130,6 +163,7 @@
             'ket'           => $ket
         );
         $this->db->insert('tb_usr',$data);
+      }
     }
 }
 }

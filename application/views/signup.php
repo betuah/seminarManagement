@@ -48,11 +48,14 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="ui-input-group">
-                                        <select class="" name="">
-
+                                      <label>Pilih Program Studi</label>
+                                        <select class="" name="jur">
+                                          <?php foreach ($get_jur as $v_jur): ?>
+            																<option value="<?php echo $v_jur['id_jurusan'] ?>"><?php echo $v_jur['nama_jur'] ?></option>
+            															<?php endforeach; ?>
                                         </select>
                                         <span class="input-bar"></span>
-                                        <label>Re Password</label>
+
                                     </div>
                                 </div>
                             </fieldset>

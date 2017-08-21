@@ -80,20 +80,6 @@
           </li>
         </ul>
       </li>
-      <!-- <li class="shk">
-        <a href="#"><i class="fa fa-lg fa-fw fa-book txt-color-blue"></i> <span class="menu-item-parent">Data Laporan</span></a>
-        <ul>
-          <li class="">
-            <a href="A_content/laporan/report_reg" title="peserta"><i class="fa fa-lg fa-fw fa-certificate txt-color-blue"></i> <span class="menu-item-parent">Laporan Registrasi</span></a>
-          </li>
-          <li class="">
-            <a href="A_content/laporan/pemakalah" title="pemakalah"><i class="fa fa-lg fa-fw fa-certificate txt-color-blue"></i> <span class="menu-item-parent">Laporan Sertifikat</span></a>
-          </li>
-          <li class="">
-            <a href="A_content/laporan/pembayaran" title="pemakalah"><i class="fa fa-lg fa-fw fa-certificate txt-color-blue"></i> <span class="menu-item-parent">Laporan Pembayaran</span></a>
-          </li>
-        </ul>
-      </li> -->
     </ul>
   </nav>
   <span class="minifyme" data-action="minifyMenu"> <i class="fa fa-arrow-circle-left hit"></i> </span>

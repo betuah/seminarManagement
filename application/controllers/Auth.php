@@ -18,7 +18,8 @@ class Auth extends CI_Controller {
 
 	public function req($req = 'else')
 	{
-		$data['req'] = $req;
+		$data['req'] 							= $req;
+		$data['get_jur'] 					= $this->auth_model->get_jur();
 
 		if ($req == 'index') {
 			$this->load->view('index', $data);
@@ -33,7 +34,10 @@ class Auth extends CI_Controller {
 		$insrt = $this->auth_model->insert();
 
 		if ($insrt == '1') {
-			redirect(base_url().'auth');
+			echo "<SCRIPT LANGUAGE='JavaScript'>
+						window.alert('Pendaftaran akun panitia anda telah di simpan Silahkan hubungi administrator untuk mengaktifasi akun anda')
+						window.location.href='".base_url()."auth';
+						</SCRIPT>";
 		} else {
 			echo $insrt;
 		}
@@ -82,7 +86,7 @@ class Auth extends CI_Controller {
 				redirect('Admin');
 			} elseif ($this->session->userdata('level')=='4' && $this->session->userdata('status')=='0') {
 				echo "<SCRIPT LANGUAGE='JavaScript'>
-							window.alert('Maaf Akun Panitia Anda Belum Aktif Silahkan hubungi admin@semnas.com')
+							window.alert('Maaf Akun Panitia Anda Belum Aktif Silahkan hubungi administrator pada prodi masing - masing')
 							window.location.href='".base_url()."auth';
 							</SCRIPT>";
 			} else {
@@ -97,6 +101,11 @@ class Auth extends CI_Controller {
 	public function logout() {
 		$this->session->unset_userdata('username');
 		$this->session->unset_userdata('level');
+		$this->session->unset_userdata('jur');
+		$this->session->unset_userdata('email');
+		$this->session->unset_userdata('status');
+		$this->session->unset_userdata('jab');
+		$this->session->unset_userdata('uid');
 		session_destroy();
 		redirect(base_url());
 	}

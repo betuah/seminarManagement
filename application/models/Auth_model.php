@@ -15,6 +15,11 @@
       return $query;
     }
 
+    public function get_jur() {
+      $query = $this->db->get('tb_jurusan');
+      return $query->result_array();
+    }
+
     public function cek_panitia($data) {
       $query = $this->db->get_where('tb_panitia', $data);
       return $query;
@@ -64,8 +69,8 @@
   						'nama'        => $this->input->post('nama'),
   						'tlpn'        => $this->input->post('tlpn'),
   						'email'       => $this->input->post('email'),
+              'id_jurusan'  => $this->input->post('jur'),
   						'password'    => md5($pass),
-              'tipe_panitia'=> 'Not Confirmed',
   						'id_type_usr' => '4',
   						'status'  		=> '0'
   					);

@@ -56,11 +56,11 @@
           display:none;
         }';
       } elseif ($jab == 'Bendahara') {
-        echo '.shk {
+        echo '.shb {
           display:none;
         }';
       } elseif ($jab == 'Anggota') {
-        echo '.shk {
+        echo '.sha {
           display:none;
         }';
       }

@@ -344,77 +344,6 @@
 									        </section>
 									      </div>
 									      <!-- End Table Registrasi </fieldset> -->
-
-									    <fieldset>
-									      <div class="row">
-									        <section class="col col-4">
-									          <label class="input">
-									            <input type="text" name="namajen" id="namajen" placeholder="Jenis Kegiatan" value="<?php echo $id['nama_jen'] ?>" readonly="">
-									          </label>
-									        </section>
-									        <section class="col col-8">
-									          <label class="input">
-									            <input type="text" name="judulevent" id="judulevent" placeholder="Judul Event" value="<?php echo $id['judul_event'] ?>" readonly="">
-									            <input type="text" name="qty" id="qty" placeholder="Quota" value="<?php echo $id['judul_event'] ?>" readonly="">
-									          </label>
-									        </section>
-									      </div>
-									    </fieldset>
-
-									    <fieldset>
-									      <div class="row">
-									        <section class="col col-6">
-									            <select name="jenreg" class="form-control">
-									              <?php foreach ($get_v_user as $k) {
-									              if($k['ket'] == "Mahasiswa"){
-									                ?>
-									                  <option value="0">Pilih Jenis Registrasi</option>
-									                  <option value="1">Peserta</option>
-									                  <option value="2" hidden="">Pemakalah</option>
-									                <?php
-									                }else{?>
-									                <option value="0">Pilih</option>
-									                <option value="1">Peserta</option>
-									                <option value="2">Pemakalah</option>
-									              <?php }}?>
-									            </select>
-									        </section>
-
-									        <section class="col col-6">
-									          <label class="input"> <i class="icon-append fa fa-calendar"></i>
-									            <input type="text" name="tglevent" id="tglevent" placeholder="Tanggal Kegiatan" value="<?php $tgle = $id['tgl_event'] ?><?php echo date("d F Y",strtotime($tgle)); ?>" readonly="">
-									          </label>
-									        </section>
-									      </div>
-									    </fieldset>
-
-									    <fieldset>
-									      <div class="row">
-									        <section class="col col-6">
-									          <label class="input"> <i class="icon-append fa fa-university"></i>
-									            <input type="text" name="namajur" id="namajur" placeholder="Jurusan" value="<?php echo $id['nama_jur'] ?>"
-									            readonly="">
-									          </label>
-									        </section>
-									        <section class="col col-6">
-									          <label class="input"> <i class="icon-append fa fa-money"></i>
-									            <input type="text" name="harga" id="harga" placeholder="Biaya" value="<?php echo $id['harga'] ?>" readonly="">
-									          </label>
-									        </section>
-									        <section class="col col-6" hidden="">
-									          <label class="input"> <i class="icon-append fa fa-money"></i>
-									            <input type="text" name="status" id="status" placeholder="Status">
-									          </label>
-									        </section>
-									      </div>
-									    </fieldset>
-
-									    <footer>
-									      <div class="modal-footer">
-									        <button type="submit" class="btn btn-primary">Daftar</button>
-									        <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-									      </div>
-									    </footer>
 									  </form>
 									</div>
 									<!--End Modal -->
@@ -438,15 +367,10 @@
 
 										<fieldset>
 											<div class="row">
-												<section class="col col-6">
-													<label class="input"> <i class="icon-append fa fa-barcode"></i>
-														<input type="text" name="idreg" placeholder="No Reg" readonly value="<?php echo $auto_id_reg; ?>">
-														<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
-													</label>
-												</section>
-												<section class="col col-6">
+												<section class="col col-xs-12">
 													<label class="input"> <i class="icon-append fa fa-calendar"></i>
 														<input type="text" name="rdate" id="startdate" readonly="" value="<?php echo date("Y-m-d"); ?>">
+														<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
 													</label>
 												</section>
 											</div>
@@ -483,9 +407,18 @@
 												<section class="col col-6">
 													<label class="select">
 														<select name="jenreg">
-															<option value="0" selected="" disabled="">Jenis Registrasi</option>
-															<option value="1">Peserta</option>
-															<option value="2">Pemakalah</option>
+															<?php foreach ($get_v_user as $k) {
+															if($k['ket'] == "Mahasiswa"){
+																?>
+																	<option value="0">Pilih Jenis Registrasi</option>
+																	<option value="1">Peserta</option>
+																	<option value="2" hidden="">Pemakalah</option>
+																<?php
+																}else{?>
+																<option value="0">Pilih Jenis Registrasi</option>
+																<option value="1">Peserta</option>
+																<option value="2">Pemakalah</option>
+															<?php }}?>
 														</select> <i></i> </label>
 												</section>
 												<section class="col col-6">

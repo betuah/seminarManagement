@@ -105,14 +105,14 @@
 
         						if ($this->upload->do_upload('speaker')) {
         							$sdata   = array(
-        								// 'id_event'        => $id_r,
-        								// 'nama_speaker'    => $this->input->post('nama'),
-        								// 'institusi'       => $this->input->post('institusi'),
-        								// 'email'           => $this->input->post('email'),
-        								// 'tlpn'            => $this->input->post('tlpn'),
+        								'id_event'        => $id_r,
+        								'nama_speaker'    => $this->input->post('nama'),
+        								'institusi'       => $this->input->post('institusi'),
+        								'email'           => $this->input->post('email'),
+        								'tlpn'            => $this->input->post('tlpn'),
         								'foto_speaker'    => $sfile['file_name']
         							);
-        							// $this->db->insert('tb_speaker' , $sdata);
+        							$this->db->insert('tb_speaker' , $sdata);
         							print_r($sdata);
         						} else {
         							return $mssg = "<SCRIPT LANGUAGE='JavaScript'>

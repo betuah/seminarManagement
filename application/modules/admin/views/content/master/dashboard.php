@@ -39,9 +39,13 @@
 							<a data-toggle="tab" href="#s1"><i class="fa fa-clock-o"></i> <span class="hidden-mobile hidden-tablet">Event</span></a>
 						</li>
 
-						<li class="shk">
-							<a data-toggle="tab" href="#s2" onclick="return total('<?php echo $this->session->userdata('jur') ?>')"><i class="fa fa-dollar"></i> <span class="hidden-mobile hidden-tablet">Keuangan</span></a>
-						</li>
+						<?php if ($this->session->userdata('jab') == 'Bendahara' || $this->session->userdata('jab') == 'Ketua') {?>
+							<li>
+								<a data-toggle="tab" href="#s2" onclick="return total('<?php echo $this->session->userdata('jur') ?>')"><i class="fa fa-dollar"></i> <span class="hidden-mobile hidden-tablet">Keuangan</span></a>
+							</li>
+						<?php } else {
+							echo "";
+						} ?>
 					</ul>
 
 				</header>

@@ -33,9 +33,9 @@
                     </form>
                 </div>
                 <div class="additional-info">
-                    <a href="<?php echo base_url(); ?>auth/req/signup">Register</a>
                     <span class="divider-h"></span>
-                    <a href="#/forgot-password">Forgot your password?</a>
+                    <a href="<?php echo base_url(); ?>auth/req/signup">Registrasi Panitia</a>
+                    <span class="divider-h"></span>
                 </div>
             </div>
         </div>
