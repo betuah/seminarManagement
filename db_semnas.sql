@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2017-08-21 12:54:19
+Date: 2017-08-21 15:58:06
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -279,9 +279,8 @@ CREATE TABLE `tb_speaker` (
   `email` varchar(30) DEFAULT NULL,
   `remark` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_speaker`),
-  KEY `fk_evnt` (`id_event`),
-  CONSTRAINT `fk_evnt` FOREIGN KEY (`id_event`) REFERENCES `tb_event` (`id_event`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+  KEY `fk_evnt` (`id_event`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tb_speaker
@@ -292,6 +291,9 @@ INSERT INTO `tb_speaker` VALUES ('12', '2017101001', 'Mirana', 'Institusi03', 's
 INSERT INTO `tb_speaker` VALUES ('13', '2017101002', 'Pudge', 'Institusi01', 'speakers_1502679256.jpg', '+62 111-1111-111', 'pem1@semnas.com', null);
 INSERT INTO `tb_speaker` VALUES ('14', '2017101002', 'Wind Rangger', 'Institusi02', 'speakers_1502679293.jpg', '+62 222-2222-222', 'pem2@semnas.com', null);
 INSERT INTO `tb_speaker` VALUES ('15', '2017101002', 'Rikimaru', 'Institusi03', 'speakers_1502679511.jpg', '+62 333-3333-333', 'pem3@semnas.com', null);
+INSERT INTO `tb_speaker` VALUES ('23', '2017101003', 'a', 'a', 'speakers_15033058530.jpg', '+62 111-1111-111', 'asdas@asdasd.asd', null);
+INSERT INTO `tb_speaker` VALUES ('24', '2017101003', 'b', 'a', 'speakers_15033058541.jpg', '+62 111-1111-111', 'asdas@asdasd.asd', null);
+INSERT INTO `tb_speaker` VALUES ('25', '2017101003', 'ac', 'a', 'speakers_15033058542.jpg', '+62 111-1111-111', 'asdas@asdasd.asd', null);
 
 -- ----------------------------
 -- Table structure for tb_type_usr

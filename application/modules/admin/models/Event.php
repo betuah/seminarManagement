@@ -106,10 +106,10 @@
         						if ($this->upload->do_upload('speaker')) {
         							$sdata   = array(
         								'id_event'        => $id_r,
-        								'nama_speaker'    => $this->input->post('nama'),
-        								'institusi'       => $this->input->post('institusi'),
-        								'email'           => $this->input->post('email'),
-        								'tlpn'            => $this->input->post('tlpn'),
+        								'nama_speaker'    => $this->input->post('nama['.$i.']'),
+        								'institusi'       => $this->input->post('institusi['.$i.']'),
+        								'email'           => $this->input->post('email['.$i.']'),
+        								'tlpn'            => $this->input->post('tlpn['.$i.']'),
         								'foto_speaker'    => $sfile['file_name']
         							);
         							$this->db->insert('tb_speaker' , $sdata);
