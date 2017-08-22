@@ -42,12 +42,13 @@
             <img src="assets/landingpages/img/slider/bg-3.jpg" alt="" width='100%'>
             <div class="carousel-caption">
               <h2 class="wow fadeInRight" data-wow-delay="300ms">Selamat Data Di Website Seminar Nasional Universitas Pamulang <br>
-                Silahkan Pilih Tema Seminar Sesuai Program Studi Anda</h2>
-            </div>
+                Silahkan Pilih Tema Seminar Sesuai Program Studi Anda</h2><br>
+                <center><a class="btn btn-lg btn-common wow fadeInLeft" data-wow-delay="300ms" href="<?php echo base_url();?>/auth">Login</a></center>
+            </div>            
           </div>
          <?php foreach($judul as $data) { ?>
           <div class="item">
-            <img src="<?php echo base_url();?>timthumb.php?src=<?php echo base_url()."assets/file_upload/file_event/background/";?><?php echo $data['foto'];?>&w=1400%&h=690%"
+            <img src="<?php echo base_url();?>/timthumb.php?src=<?php echo base_url()."assets/file_upload/file_event/background/";?><?php echo $data['foto'];?>&w=1400%&h=690%"
                                 style="max-width:100%;">
                 <div class="carousel-caption">
                     <a href="<?php echo base_url()."Home/detail_event/".$data['id_event'];?>">
