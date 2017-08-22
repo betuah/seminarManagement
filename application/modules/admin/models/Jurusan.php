@@ -11,7 +11,7 @@
 		}
 
     public function get() {
-      $query = $this->db->get('tb_jurusan');
+      $this->session->userdata('jur') !='' ? $query = $this->db->get_where('tb_jurusan' , array('id_jurusan' => $this->session->userdata('jur'))) :   $query = $this->db->get('tb_jurusan');
       return $query->result_array();
     }
 

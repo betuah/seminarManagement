@@ -81,95 +81,93 @@
                       window.location.href='".base_url()."Admin#A_content/master/event';
                       </SCRIPT>";
             } else {
-              if ($_FILES['bg_event']['name']) {
-                $config = array(
-                  'file_name'     => 'bg_event_'.time().'.jpg',
-                  'allowed_types' => 'jpg|jpeg|png',
-                  'max_size'      => 100000,
-                  'upload_path'		=> 'assets/file_upload/file_event/background'
-                );
+              if($_FILES['pembicara']['name']){
+        					$filesCount = count($_FILES['pembicara']['name']);
 
-                $this->upload->initialize($config);
-                $sfile   = $this->upload->data();
+        					for($i = 0; $i < $filesCount; $i++){
+        						// echo $i;
+        						$_FILES['speaker']['name'] = $_FILES['pembicara']['name'][$i];
+        						$_FILES['speaker']['type'] = $_FILES['pembicara']['type'][$i];
+        						$_FILES['speaker']['tmp_name'] = $_FILES['pembicara']['tmp_name'][$i];
+        						$_FILES['speaker']['error'] = $_FILES['pembicara']['error'][$i];
+        						$_FILES['speaker']['size'] = $_FILES['pembicara']['size'][$i];
 
-                  if ($this->upload->do_upload('bg_event')) {
-                    $file     = $this->upload->data();
-                    $data   = array(
-                      'id_event'        => $id_r,
-                      'judul_event'     => $this->input->post('tema'),
-                      'tgl_event'       => $this->input->post('edate'),
-                      'tgl_akhir_reg'   => $this->input->post('rdate'),
-                      'id_jurusan'      => $this->input->post('id_jur'),
-                      'id_jen_event'    => $this->input->post('jen_evn'),
-                      'harga'           => $this->input->post('hrg'),
-                      'quota'           => $this->input->post('quota'),
-                      'id_periode'      => $this->input->post('periode'),
-                      'id_lokasi'       => $this->input->post('idloc'),
-                      'foto'            => $file['file_name'],
-                      'status'          => "0"
+        						$sconfig = array(
+        							'file_name'     => 'speakers_'.time().$i.'.jpg',
+        							'allowed_types' => 'jpg|jpeg|png',
+        							'max_size'      => 10000,
+        							'overwrite'     => TRUE,
+        							'upload_path'		=> 'assets/file_upload/file_event/pembicara'
+        						);
+
+        						$this->upload->initialize($sconfig);
+        						$sfile   = $this->upload->data();
+
+        						if ($this->upload->do_upload('speaker')) {
+        							$sdata   = array(
+        								'id_event'        => $id_r,
+        								'nama_speaker'    => $this->input->post('nama['.$i.']'),
+        								'institusi'       => $this->input->post('institusi['.$i.']'),
+        								'email'           => $this->input->post('email['.$i.']'),
+        								'tlpn'            => $this->input->post('tlpn['.$i.']'),
+        								'foto_speaker'    => $sfile['file_name']
+        							);
+        							$this->db->insert('tb_speaker' , $sdata);
+        							print_r($sdata);
+        						} else {
+        							return $mssg = "<SCRIPT LANGUAGE='JavaScript'>
+        										window.alert('".$this->upload->display_errors()."')
+        										window.location.href='".base_url()."Admin#A_content/master/event';
+        										</SCRIPT>";
+        						}
+        					}
+                  if ($_FILES['bg_event']['name']) {
+                    $config = array(
+                      'file_name'     => 'bg_event_'.time().'.jpg',
+                      'allowed_types' => 'jpg|jpeg|png',
+                      'max_size'      => 100000,
+                      'upload_path'		=> 'assets/file_upload/file_event/background'
                     );
-                    $this->db->insert('tb_event' , $data);
 
-                    if($_FILES['pembicara']['name']){
-              					$filesCount = count($_FILES['pembicara']['name']);
+                    $this->upload->initialize($config);
+                    $sfile   = $this->upload->data();
 
-              					for($i = 0; $i < $filesCount; $i++){
-              						// echo $i;
-              						$_FILES['speaker']['name'] = $_FILES['pembicara']['name'][$i];
-              						$_FILES['speaker']['type'] = $_FILES['pembicara']['type'][$i];
-              						$_FILES['speaker']['tmp_name'] = $_FILES['pembicara']['tmp_name'][$i];
-              						$_FILES['speaker']['error'] = $_FILES['pembicara']['error'][$i];
-              						$_FILES['speaker']['size'] = $_FILES['pembicara']['size'][$i];
-
-              						$sconfig = array(
-              							'file_name'     => 'speakers_'.time().$i.'.jpg',
-              							'allowed_types' => 'jpg|jpeg|png',
-              							'max_size'      => 10000,
-              							'overwrite'     => TRUE,
-              							'upload_path'		=> 'assets/file_upload/file_event/pembicara'
-              						);
-
-              						$this->upload->initialize($sconfig);
-              						$sfile   = $this->upload->data();
-
-              						if ($this->upload->do_upload('speaker')) {
-              							$sdata   = array(
-              								'id_event'        => $id_r,
-              								'nama_speaker'    => $this->input->post('nama['.$i.']'),
-              								'institusi'       => $this->input->post('institusi['.$i.']'),
-              								'email'           => $this->input->post('email['.$i.']'),
-              								'tlpn'            => $this->input->post('tlpn['.$i.']'),
-              								'foto_speaker'    => $sfile['file_name']
-              							);
-              							$this->db->insert('tb_speaker' , $sdata);
-              							
-              						} else {
-              							return $mssg = "<SCRIPT LANGUAGE='JavaScript'>
-              										window.alert('".$this->upload->display_errors()."')
-              										window.location.href='".base_url()."Admin#A_content/master/event';
-              										</SCRIPT>";
-              						}
-              					}
-              			} else {
-              				return $mssg = "<SCRIPT LANGUAGE='JavaScript'>
-              							window.alert('Pastikan Anda telah mengisi data pembicara berseta fotonya')
-              							window.location.href='".base_url()."Admin#A_content/master/event';
-              							</SCRIPT>";
-              			}
-
-                    return $mssg = '1';
+                      if ($this->upload->do_upload('bg_event')) {
+                        $file     = $this->upload->data();
+                        $data   = array(
+                          'id_event'        => $id_r,
+                          'judul_event'     => $this->input->post('tema'),
+                          'tgl_event'       => $this->input->post('edate'),
+                          'tgl_akhir_reg'   => $this->input->post('rdate'),
+                          'id_jurusan'      => $this->input->post('id_jur'),
+                          'id_jen_event'    => $this->input->post('jen_evn'),
+                          'harga'           => $this->input->post('hrg'),
+                          'quota'           => $this->input->post('quota'),
+                          'id_periode'      => $this->input->post('periode'),
+                          'id_lokasi'       => $this->input->post('idloc'),
+                          'foto'            => $file['file_name'],
+                          'status'          => "0"
+                        );
+                        $this->db->insert('tb_event' , $data);
+                        return $mssg = '1';
+                      } else {
+                        return $mssg = "<SCRIPT LANGUAGE='JavaScript'>
+                              window.alert('".$this->upload->display_errors()."')
+                              window.location.href='".base_url()."Admin#A_content/master/event';
+                              </SCRIPT>";
+                      }
                   } else {
                     return $mssg = "<SCRIPT LANGUAGE='JavaScript'>
-                          window.alert('".$this->upload->display_errors()."')
+                          window.alert('Tidak Ada Data foto event yang di upload')
                           window.location.href='".base_url()."Admin#A_content/master/event';
                           </SCRIPT>";
                   }
-              } else {
-                return $mssg = "<SCRIPT LANGUAGE='JavaScript'>
-                      window.alert('Tidak Ada Data foto event yang di upload')
-                      window.location.href='".base_url()."Admin#A_content/master/event';
-                      </SCRIPT>";
-              }
+        			} else {
+        				return $mssg = "<SCRIPT LANGUAGE='JavaScript'>
+        							window.alert('Pastikan Anda telah mengisi data pembicara berseta fotonya')
+        							window.location.href='".base_url()."Admin#A_content/master/event';
+        							</SCRIPT>";
+        			}
             }
           } else {
             return $mssg = "<SCRIPT LANGUAGE='JavaScript'>

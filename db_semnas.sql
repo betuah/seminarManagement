@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2017-08-21 15:58:06
+Date: 2017-08-22 11:19:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -279,8 +279,9 @@ CREATE TABLE `tb_speaker` (
   `email` varchar(30) DEFAULT NULL,
   `remark` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_speaker`),
-  KEY `fk_evnt` (`id_event`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+  KEY `fk_evnt` (`id_event`),
+  CONSTRAINT `fk_evnt` FOREIGN KEY (`id_event`) REFERENCES `tb_event` (`id_event`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tb_speaker
@@ -291,9 +292,6 @@ INSERT INTO `tb_speaker` VALUES ('12', '2017101001', 'Mirana', 'Institusi03', 's
 INSERT INTO `tb_speaker` VALUES ('13', '2017101002', 'Pudge', 'Institusi01', 'speakers_1502679256.jpg', '+62 111-1111-111', 'pem1@semnas.com', null);
 INSERT INTO `tb_speaker` VALUES ('14', '2017101002', 'Wind Rangger', 'Institusi02', 'speakers_1502679293.jpg', '+62 222-2222-222', 'pem2@semnas.com', null);
 INSERT INTO `tb_speaker` VALUES ('15', '2017101002', 'Rikimaru', 'Institusi03', 'speakers_1502679511.jpg', '+62 333-3333-333', 'pem3@semnas.com', null);
-INSERT INTO `tb_speaker` VALUES ('23', '2017101003', 'a', 'a', 'speakers_15033058530.jpg', '+62 111-1111-111', 'asdas@asdasd.asd', null);
-INSERT INTO `tb_speaker` VALUES ('24', '2017101003', 'b', 'a', 'speakers_15033058541.jpg', '+62 111-1111-111', 'asdas@asdasd.asd', null);
-INSERT INTO `tb_speaker` VALUES ('25', '2017101003', 'ac', 'a', 'speakers_15033058542.jpg', '+62 111-1111-111', 'asdas@asdasd.asd', null);
 
 -- ----------------------------
 -- Table structure for tb_type_usr
@@ -340,6 +338,7 @@ INSERT INTO `tb_usr` VALUES ('1234567890', 'Testing User', 'ee11cbb19052e40b07aa
 INSERT INTO `tb_usr` VALUES ('2013142092', 'Nurdin', 'ee11cbb19052e40b07aac0ca060c23ee', 'nurdin@indomedica.net', 'Pria', '082311428337', 'Jakarta', '2017-07-08', '3', 'Dosen');
 INSERT INTO `tb_usr` VALUES ('2013143067', 'Betuah Anugerah', 'e716f5f9ab300aa5e3d62147d0d35ca3', 'betuah@seamolec.org', 'Laki-laki', '082929292929', 'Bogor', '2017-08-13', '3', 'Mahasiswa');
 INSERT INTO `tb_usr` VALUES ('2014133067', 'Testing User', '7815696ecbf1c96e6894b779456d330e', 'testing@semnas.com', 'Pria', '+62 111-1111-1111', 'asdasdasdasdasdasd', '2017-08-02', '3', 'Dosen');
+INSERT INTO `tb_usr` VALUES ('2017143067', 'asdasd', 'a8f5f167f44f4964e6c998dee827110c', 'asdasdasd@asdsa.asd', 'Laki-laki', '12312312312', 'asdasdasdas asda sdas asd asda sdas asd', '2017-08-21', '3', 'mahasiswa');
 INSERT INTO `tb_usr` VALUES ('admin@semnas.com', 'Admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@semnas.com', 'Pria', '082311428337', 'Alamat', '2017-07-07', '1', 'Dosen');
 
 -- ----------------------------
