@@ -108,7 +108,7 @@
                       'foto'            => $file['file_name'],
                       'status'          => "0"
                     );
-                    $this->db->insert('tb_event' , $data);
+
 
                     if($_FILES['pembicara']['name']){
               					$filesCount = count($_FILES['pembicara']['name']);
@@ -141,8 +141,10 @@
               								'tlpn'            => $this->input->post('tlpn['.$i.']'),
               								'foto_speaker'    => $sfile['file_name']
               							);
+                            $this->db->insert('tb_event' , $data);
               							$this->db->insert('tb_speaker' , $sdata);
-              							
+              							return $mssg = '1';
+                            
               						} else {
               							return $mssg = "<SCRIPT LANGUAGE='JavaScript'>
               										window.alert('".$this->upload->display_errors()."')
@@ -156,8 +158,6 @@
               							window.location.href='".base_url()."Admin#A_content/master/event';
               							</SCRIPT>";
               			}
-
-                    return $mssg = '1';
                   } else {
                     return $mssg = "<SCRIPT LANGUAGE='JavaScript'>
                           window.alert('".$this->upload->display_errors()."')
