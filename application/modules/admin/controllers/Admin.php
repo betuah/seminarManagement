@@ -74,7 +74,11 @@
 			$insrt = $this->$pages->insert();
 
 			if ($insrt == '1') {
-				redirect('Admin#A_content/'.$content.'/'.$pages);
+				echo "<SCRIPT LANGUAGE='JavaScript'>
+								window.alert('Data Berhasil Di Simpan')
+								window.location.href='".base_url()."Admin#A_content/".$content."/".$pages."';
+								</SCRIPT>";
+				// redirect('Admin#A_content/'.$content.'/'.$pages);
 			} else {
 				echo $insrt;
 			}
