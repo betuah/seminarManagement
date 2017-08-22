@@ -39,7 +39,7 @@
 							<a data-toggle="tab" href="#s1"><i class="fa fa-clock-o"></i> <span class="hidden-mobile hidden-tablet">Event</span></a>
 						</li>
 
-						<?php if ($this->session->userdata('jab') == 'Bendahara' || $this->session->userdata('jab') == 'Ketua') {?>
+						<?php if ($this->session->userdata('jab') == 'Bendahara' || $this->session->userdata('jab') == 'Ketua' || $this->session->userdata('level') == '1') {?>
 							<li>
 								<a data-toggle="tab" href="#s2" onclick="return total('<?php echo $this->session->userdata('jur') ?>')"><i class="fa fa-dollar"></i> <span class="hidden-mobile hidden-tablet">Keuangan</span></a>
 							</li>
