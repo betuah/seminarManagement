@@ -24,7 +24,7 @@
       <li class="">
         <a href="A_content/master/dashboard" title="Dashboard"><i class="fa fa-lg fa-fw fa-home txt-color-blue"></i> <span class="menu-item-parent">Dashboard</span></a>
       </li>
-      <li>
+      <li style="display:none">
         <a href="#"><i class="fa fa-lg fa-fw fa-database txt-color-blue"></i> <span class="menu-item-parent">Data Master</span></a>
         <ul>
           <li class="">

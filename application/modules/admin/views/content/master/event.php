@@ -167,7 +167,7 @@
 																</td>
 																<td>
 																	<label class="input"> <i class="icon-append fa fa-phone"></i>
-																		<input type="tel" name="tlpn[]" placeholder="Nomor Telepon" data-mask="+62 999-9999-9999" required="">
+																		<input type="tel" name="tlpn[]" placeholder="Nomor Telepon" required="">
 																	</label>
 																</td>
 																<td>

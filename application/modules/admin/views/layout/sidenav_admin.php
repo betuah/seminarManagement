@@ -75,7 +75,7 @@
           <li class="">
             <a href="A_content/transaksi/sertifikat" title="Sertifikat"><i class="fa fa-lg fa-fw fa-certificate txt-color-blue"></i> <span class="menu-item-parent">Sertifikat</span></a>
           </li>
-          <li class="">
+          <li class="" style="display:none">
             <a href="A_content/transaksi/absen" title="Kehadiran"><i class="fa fa-lg fa-fw fa-user-md txt-color-blue"></i> <span class="menu-item-parent">Cek Kehadiran</span></a>
           </li>
         </ul>

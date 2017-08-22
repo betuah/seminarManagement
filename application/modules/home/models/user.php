@@ -55,32 +55,32 @@
                   </SCRIPT>";
           } else {
             echo "string";
-            // $id_usr       = $this->input->post('nim');
-            // $nama_usr     = $this->input->post('nama_usr');
-            // $password     = $this->input->post('password');
-            // $email        = $this->input->post('email');
-            // $jekel        = $this->input->post('jekel');
-            // $no_tlpn      = $this->input->post('no_tlpn');
-            // $alamat       = $this->input->post('alamat');
-            // $tgl_daftar   = $this->input->post('tgl_daftar');
-            // $id_type_usr  = $this->input->post('id_type_usr');
-            // $ket          = $this->input->post('ket');
-            // $id_type_usr ='3';
-            // $ket ='mahasiswa';
-            //
-            // $data = array (
-            // 'id_usr'        => $id_usr,
-            // 'nama_usr'      => $nama_usr,
-            // 'password'      => md5($password),
-            // 'email'         => $email,
-            // 'jekel'         => $jekel,
-            // 'no_tlpn'       => $no_tlpn,
-            // 'alamat_usr'    => $alamat,
-            // 'tgl_daftar'    => date("Y-m-d"),
-            // 'id_type_usr'   => $id_type_usr,
-            // 'ket'           => $ket
-            // );
-            // $this->db->insert('tb_usr',$data);
+            $id_usr       = $this->input->post('nim');
+            $nama_usr     = $this->input->post('nama_usr');
+            $password     = $this->input->post('password');
+            $email        = $this->input->post('email');
+            $jekel        = $this->input->post('jekel');
+            $no_tlpn      = $this->input->post('no_tlpn');
+            $alamat       = $this->input->post('alamat');
+            $tgl_daftar   = $this->input->post('tgl_daftar');
+            $id_type_usr  = $this->input->post('id_type_usr');
+            $ket          = $this->input->post('ket');
+            $id_type_usr ='3';
+            $ket ='mahasiswa';
+
+            $data = array (
+            'id_usr'        => $id_usr,
+            'nama_usr'      => $nama_usr,
+            'password'      => md5($password),
+            'email'         => $email,
+            'jekel'         => $jekel,
+            'no_tlpn'       => $no_tlpn,
+            'alamat_usr'    => $alamat,
+            'tgl_daftar'    => date("Y-m-d"),
+            'id_type_usr'   => $id_type_usr,
+            'ket'           => $ket
+            );
+            $this->db->insert('tb_usr',$data);
           }
     }
 
