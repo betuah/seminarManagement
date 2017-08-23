@@ -20,43 +20,53 @@
 
       $sql = "SELECT status FROM tb_reg WHERE (id_reg = '".$id."' or id_usr = '".$id."') AND id_event = '".$ide."'";
 
-      $r = $this->db->query($sql);
+      $sqlcek = "SELECT * FROM tb_reg WHERE (id_reg = '".$id."' or id_usr = '".$id."') AND status = '2' AND id_event = '".$ide."'";
 
-      if ($r->num_rows() == 1) {
-        foreach ($r->result_array() as $reg) {
-          $stat = $reg['status'];
-        }
+      $r    = $this->db->query($sql);
+      $cek  = $this->db->query($sqlcek);
 
-        if ($stat == '0') {
-          return $mssg = "<SCRIPT LANGUAGE='JavaScript'>
-                window.alert('Peserta dengan nomor registrasi ".$this->input->post('noreg')." Belum melakukan pembayar')
-                window.location.href='".base_url()."Admin#A_content/transaksi/absen';
-                </SCRIPT>";
-        } else {
-          $this->form_validation->set_rules('noreg','IDR','required');
-          $this->form_validation->set_rules('absen','absen','required');
+      if ($cek->num_rows() == 1) {
+        return $mssg = "<SCRIPT LANGUAGE='JavaScript'>
+              window.alert('Peserta dengan nomor registrasi ".$this->input->post('noreg')." Sudah melakukan Absensi')
+              window.location.href='".base_url()."Admin#A_content/transaksi/absen';
+              </SCRIPT>";
+      } else {
 
-          if ($this->form_validation->run() == FALSE) {
+        if ($r->num_rows() == 1) {
+          foreach ($r->result_array() as $reg) {
+            $stat = $reg['status'];
+          }
+
+          if ($stat == '0') {
             return $mssg = "<SCRIPT LANGUAGE='JavaScript'>
-                  window.alert('Pastikan Semua data telah terisi ')
+                  window.alert('Peserta dengan nomor registrasi ".$this->input->post('noreg')." Belum melakukan pembayar')
                   window.location.href='".base_url()."Admin#A_content/transaksi/absen';
                   </SCRIPT>";
           } else {
-            $ids = $this->input->post('noreg');
-            $data = array(
-              'id_reg'    => $this->input->post('noreg'),
-              'status'    => $this->input->post('absen')
-            );
+            $this->form_validation->set_rules('noreg','IDR','required');
+            $this->form_validation->set_rules('absen','absen','required');
 
-            $this->db->where('id_reg', $ids);
-            return $this->db->update('tb_reg' , $data);
+            if ($this->form_validation->run() == FALSE) {
+              return $mssg = "<SCRIPT LANGUAGE='JavaScript'>
+                    window.alert('Pastikan Semua data telah terisi ')
+                    window.location.href='".base_url()."Admin#A_content/transaksi/absen';
+                    </SCRIPT>";
+            } else {
+              $ids = $this->input->post('noreg');
+              $data = array(
+                'status'    => $this->input->post('absen')
+              );
+
+              $this->db->where('id_reg', $ids);
+              return $this->db->update('tb_reg' , $data);
+            }
           }
+        } else {
+          return $mssg = "<SCRIPT LANGUAGE='JavaScript'>
+                window.alert('ID Registrasi yang Anda masukan tidak tersedia')
+                window.location.href='".base_url()."Admin#A_content/transaksi/absen';
+                </SCRIPT>";
         }
-      } else {
-        return $mssg = "<SCRIPT LANGUAGE='JavaScript'>
-              window.alert('ID Registrasi yang Anda masukan tidak tersedia')
-              window.location.href='".base_url()."Admin#A_content/transaksi/absen';
-              </SCRIPT>";
       }
     }
 

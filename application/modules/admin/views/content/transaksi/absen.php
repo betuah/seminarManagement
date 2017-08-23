@@ -49,7 +49,7 @@
 								<div class="row">
 									<section class="col col-6">
 										<label class="input"> <i class="icon-append fa fa-edit"></i>
-											<input id="idreg" class="form-control" placeholder="No Registrasi" name="noreg" type="text"  list="reg">
+											<input id="idreg" class="form-control" placeholder="No Registrasi atau NIM" name="noreg" type="text"  list="reg">
 											<datalist id="reg">
 												<?php foreach ($get_reg as $v_reg): ?>
 													<option value="<?php echo $v_reg['id_reg']; ?>"><?php echo $v_reg['id_reg']; ?></option>

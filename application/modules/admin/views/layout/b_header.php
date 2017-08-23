@@ -2,7 +2,7 @@
   <div id="logo-group">
 
     <!-- PLACE YOUR LOGO HERE -->
-    <span id="logo"> <img src="<?php echo base_url(); ?>assets/smartadmin/img/logo.png" alt="Sistem Management Seminar Universitas Pamulang"> </span>
+     <div>&nbsp;&nbsp;&nbsp;<img src="<?php echo base_url(); ?>assets/smartadmin/img/logo_unpam.png" alt="Sistem Management Seminar Universitas Pamulang" width="40" height="40"></div> 
     <!-- END LOGO PLACEHOLDER -->
   </div>
 

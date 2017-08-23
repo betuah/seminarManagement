@@ -90,9 +90,7 @@
 														</a>
 													</li>
 													<li>
-														<a href="<?php echo base_url() . 'admin/delete/master/user/' . $v_usr['id_usr'] ?>">
-															<button type="button" name="jurdel" class="btn btn-danger"><i class="fa  fa-trash-o"></i></button>
-														</a>
+														<button type="button" onclick="del('<?php echo $v_usr['id_usr'] ?>')" name="jurdel" class="btn btn-danger"><i class="fa  fa-trash-o"></i></button>
 													</li>
 												</ul>
 											</td>
@@ -162,7 +160,7 @@
 													<label class="input"> <i class="icon-append fa fa-phone"></i>
 														<input type="tel" name="no_tlp" placeholder="No Telepon" data-mask="+62 999-9999-9999" required="">
 													</label>
-												</section>												
+												</section>
 												<section class="col col-6">
 													<label class="select">
 														<select name="ket" required="">
@@ -227,6 +225,16 @@
 	</div>
 </section>
 <!-- end widget grid -->
+
+<script>
+	function del(ID) {
+	   if (confirm("Apakah Anda ingin menghapus data ini ? Note : Jika Data ini masih digunakan pada data lain seperti pada data registrasi maka atribut Jurusan pada data tersebut akan ikut terhapus.") == true) {
+	       window.location.href='<?php echo base_url() . "admin/delete/master/user/"?>'+ID;
+	   } else {
+	       return FALSE;
+	   }
+	}
+</script>
 
 <script type="text/javascript">
 

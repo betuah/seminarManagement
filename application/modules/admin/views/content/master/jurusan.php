@@ -160,7 +160,7 @@
 
 <script>
 	function del(ID) {
-	   if (confirm("Apakah Anda ingin menghapus data ini ? Note : Jika Data ini masih gunakan pada data lain seperti data event dan data user maka atribut Jurusan pada data tersebut akan hilang.") == true) {
+	   if (confirm("Apakah Anda ingin menghapus data ini ? Note : Jika Data ini masih digunakan pada data lain seperti data event dan data user maka atribut Jurusan pada data tersebut akan hilang.") == true) {
 	       window.location.href='<?php echo base_url() . "admin/delete/master/jurusan/"?>'+ID;
 	   } else {
 	       return FALSE;
