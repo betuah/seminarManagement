@@ -52,7 +52,7 @@
             if ($today < $tgle) {
          ?>
           <div class="item">
-            <img src="<?php echo base_url();?>/timthumb.php?src=<?php echo base_url()."assets/file_upload/file_event/background/";?><?php echo $data['foto'];?>&w=1400%&h=690%"
+            <img src="<?php echo base_url();?>timthumb.php?src=<?php echo base_url()."assets/file_upload/file_event/background/";?><?php echo $data['foto'];?>&w=1400%&h=690%"
                                 style="max-width:100%;">
                 <div class="carousel-caption">
                     <a href="<?php echo base_url()."Home/detail_event/".$data['id_event'];?>">
