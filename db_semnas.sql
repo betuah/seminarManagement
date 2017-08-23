@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2017-08-22 11:19:36
+Date: 2017-08-23 15:45:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -235,8 +235,8 @@ CREATE TABLE `tb_reg` (
   KEY `fk_usr` (`id_usr`) USING BTREE,
   KEY `fk_to_jen_reg` (`id_jen_reg`),
   CONSTRAINT `fk_to_evnt` FOREIGN KEY (`id_event`) REFERENCES `tb_event` (`id_event`) ON UPDATE CASCADE,
-  CONSTRAINT `fk_to_jen_reg` FOREIGN KEY (`id_jen_reg`) REFERENCES `tb_jen_reg` (`id_jen_reg`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  CONSTRAINT `fk_to_usr` FOREIGN KEY (`id_usr`) REFERENCES `tb_usr` (`id_usr`) ON DELETE NO ACTION ON UPDATE CASCADE
+  CONSTRAINT `fk_to_jen_reg` FOREIGN KEY (`id_jen_reg`) REFERENCES `tb_jen_reg` (`id_jen_reg`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `fk_to_usr` FOREIGN KEY (`id_usr`) REFERENCES `tb_usr` (`id_usr`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
@@ -281,7 +281,7 @@ CREATE TABLE `tb_speaker` (
   PRIMARY KEY (`id_speaker`),
   KEY `fk_evnt` (`id_event`),
   CONSTRAINT `fk_evnt` FOREIGN KEY (`id_event`) REFERENCES `tb_event` (`id_event`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tb_speaker
@@ -334,7 +334,6 @@ CREATE TABLE `tb_usr` (
 -- ----------------------------
 -- Records of tb_usr
 -- ----------------------------
-INSERT INTO `tb_usr` VALUES ('1234567890', 'Testing User', 'ee11cbb19052e40b07aac0ca060c23ee', 'testing@semnas.com', 'Pria', '082311428337', 'Jakarta', '2017-07-07', '3', 'Mahasiswa');
 INSERT INTO `tb_usr` VALUES ('2013142092', 'Nurdin', 'ee11cbb19052e40b07aac0ca060c23ee', 'nurdin@indomedica.net', 'Pria', '082311428337', 'Jakarta', '2017-07-08', '3', 'Dosen');
 INSERT INTO `tb_usr` VALUES ('2013143067', 'Betuah Anugerah', 'e716f5f9ab300aa5e3d62147d0d35ca3', 'betuah@seamolec.org', 'Laki-laki', '082929292929', 'Bogor', '2017-08-13', '3', 'Mahasiswa');
 INSERT INTO `tb_usr` VALUES ('2014133067', 'Testing User', '7815696ecbf1c96e6894b779456d330e', 'testing@semnas.com', 'Pria', '+62 111-1111-1111', 'asdasdasdasdasdasd', '2017-08-02', '3', 'Dosen');
