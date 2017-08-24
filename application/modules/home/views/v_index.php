@@ -55,12 +55,12 @@
             <img src="<?php echo base_url();?>timthumb.php?src=<?php echo base_url()."assets/file_upload/file_event/background/";?><?php echo $data['foto'];?>&w=1400%&h=690%"
                                 style="max-width:100%;">
                 <div class="carousel-caption">
-                    <a href="<?php echo base_url()."Home/detail_event/".$data['id_event'];?>">
+                    <a href="<?php echo base_url()."home/detail_event/".$data['id_event'];?>">
                         <h2 class="wow fadeInUp" data-wow-delay="300ms">Seminar Nasional Program Studi <?php echo $data['nama_jur'];?>
                         <br><?php echo $data['judul_event'];?></h2>
                     </a>
                 <div class="buttons">
-                    <a class="btn btn-lg btn-common wow fadeInLeft" data-wow-delay="300ms" href="<?php echo base_url()."Home/detail_event/".$data['id_event'];?>">Lihat Selengkapnya</a>
+                    <a class="btn btn-lg btn-common wow fadeInLeft" data-wow-delay="300ms" href="<?php echo base_url()."home/detail_event/".$data['id_event'];?>">Lihat Selengkapnya</a>
                 </div>
             </div>
           </div>
