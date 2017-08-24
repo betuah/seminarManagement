@@ -41,7 +41,7 @@
           <div class="item active">
             <img src="assets/landingpages/img/slider/bg-3.jpg" alt="" width='100%'>
             <div class="carousel-caption">
-              <h2 class="wow fadeInRight" data-wow-delay="300ms">Selamat Data Di Website Seminar Nasional Universitas Pamulang <br>
+              <h2 class="wow fadeInRight" data-wow-delay="300ms">Selamat Datang Di Website Seminar Nasional Universitas Pamulang <br>
                 Silahkan geser dan Pilih Tema Seminar Sesuai Program Studi Anda</h2><br>
                 <center><a class="btn btn-lg btn-common wow fadeInLeft" data-wow-delay="300ms" href="<?php echo base_url();?>auth">Login</a></center>
             </div>

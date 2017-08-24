@@ -70,6 +70,7 @@
               'password'    => md5($pass),
               'tipe_panitia'=> $this->input->post('pan'),
               'id_type_usr' => "4",
+              'status'      => "1",
               'id_jurusan'  => $this->input->post('jur')
             );
             $this->db->insert('tb_panitia' , $data);

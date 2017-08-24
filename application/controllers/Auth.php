@@ -94,7 +94,10 @@ class Auth extends CI_Controller {
 			}
 		}
 		else {
-			echo "<script>alert('Gagal login: Cek username, password!');history.go(-1);</script>";
+			echo "<SCRIPT LANGUAGE='JavaScript'>
+						window.alert('Gagal Login, Periksa Kembali Username Dan Password Anda')
+						window.location.href='".base_url()."auth';
+						</SCRIPT>";
 		}
 	}
 

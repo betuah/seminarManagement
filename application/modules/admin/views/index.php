@@ -21,6 +21,8 @@
             $this->load->view('layout/sidenav_pengurus');
           } elseif ($jab == 'Bendahara') {
             $this->load->view('layout/sidenav_bendahara');
+          } else {
+            $this->load->view('layout/sidenav_pengurus');
           }
         } elseif ($lvl == '1') {
           $this->load->view('layout/sidenav_admin');
