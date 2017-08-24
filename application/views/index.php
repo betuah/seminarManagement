@@ -20,9 +20,10 @@
     <body>
       <!-- Start Content -->
         <?php
-          if ($this->session->userdata('level')=='1' {
+          if ($this->session->userdata('level')=='1') {
             redirect(base_url().'Admin');
-          } elseif ($this->session->userdata('level')=='1' && $this->session->userdata('status')=='1'))
+          } elseif ($this->session->userdata('level')=='4' && $this->session->userdata('status')=='1') {
+            redirect(base_url().'Admin');
           } elseif ($this->session->userdata('level')=='3') {
             redirect(base_url().'User');
           } else {

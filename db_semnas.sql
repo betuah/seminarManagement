@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2017-08-24 14:31:41
+Date: 2017-08-24 16:57:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -61,13 +61,13 @@ CREATE TABLE `tb_event` (
   KEY `fk_periode` (`id_periode`),
   CONSTRAINT `fk_jen_event` FOREIGN KEY (`id_jen_event`) REFERENCES `tb_jen_event` (`id_jen_event`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `fk_jurusan` FOREIGN KEY (`id_jurusan`) REFERENCES `tb_jurusan` (`id_jurusan`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `fk_periode` FOREIGN KEY (`id_periode`) REFERENCES `tb_periode_panitia` (`id_periode`) ON DELETE NO ACTION ON UPDATE CASCADE
+  CONSTRAINT `fk_periode` FOREIGN KEY (`id_periode`) REFERENCES `tb_periode_panitia` (`id_periode`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tb_event
 -- ----------------------------
-INSERT INTO `tb_event` VALUES ('2017101001', 'Judul Seminar 1', '2017-09-16', '2017-09-10', 'JRU001', '1', '15000', '100', '20171', 'AUDI', 'bg_event_1499489272.jpg', '0', 'Keterangan', '7');
+INSERT INTO `tb_event` VALUES ('2017101001', 'Judul Seminar 1', '2017-09-16', '2017-09-10', 'JRU001', '1', '15000', '100', null, 'AUDI', 'bg_event_1499489272.jpg', '0', 'Keterangan', '7');
 INSERT INTO `tb_event` VALUES ('2017101002', 'Judul Seminar 2', '2017-08-26', '2017-08-19', 'JRU001', '1', '50000', '1500', '20172', 'REKTORAT', 'bg_event_1499489303.jpg', '0', 'Keterangan', '7');
 INSERT INTO `tb_event` VALUES ('2017201003', 'Internet Of Things Untuk Pembangunan Kota Cerdas', '2017-09-28', '2017-09-27', 'JRU001', '1', '65000', '1200', '20172', 'REKTORAT', 'bg_event_1503551784.jpg', '0', null, null);
 
@@ -160,7 +160,7 @@ CREATE TABLE `tb_panitia` (
   KEY `fk_panitia_tipe_usr` (`id_type_usr`),
   CONSTRAINT `fk_panitia_jur` FOREIGN KEY (`id_jurusan`) REFERENCES `tb_jurusan` (`id_jurusan`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `fk_panitia_tipe_usr` FOREIGN KEY (`id_type_usr`) REFERENCES `tb_type_usr` (`id_type_usr`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tb_panitia
@@ -174,6 +174,7 @@ INSERT INTO `tb_panitia` VALUES ('15', 'Lilis', 'Anggota', 'JRU002', '+62 010-10
 INSERT INTO `tb_panitia` VALUES ('16', 'test', 'Anggota', 'JRU001', '081310114567', 'testing@semnas.com', 'a8f5f167f44f4964e6c998dee827110c', '4', '1');
 INSERT INTO `tb_panitia` VALUES ('18', 'Ruli Handrian', null, 'JRU001', '081234234123', 'rulihandrian2710@gmail.com', 'e716f5f9ab300aa5e3d62147d0d35ca3', '4', '0');
 INSERT INTO `tb_panitia` VALUES ('19', 'bendahara', 'Bendahara', 'JRU001', '+62 111-2222-333', 'bendahara@semnas.com', 'c9ccd7f3c1145515a9d3f7415d5bcbea', '4', null);
+INSERT INTO `tb_panitia` VALUES ('20', 'asd', null, 'JRU001', '123123123', 'asdasdasd@asdsa.asd', '7815696ecbf1c96e6894b779456d330e', '4', '0');
 
 -- ----------------------------
 -- Table structure for tb_paper
@@ -213,7 +214,6 @@ CREATE TABLE `tb_periode_panitia` (
 -- ----------------------------
 -- Records of tb_periode_panitia
 -- ----------------------------
-INSERT INTO `tb_periode_panitia` VALUES ('20171', '1', '4');
 INSERT INTO `tb_periode_panitia` VALUES ('20171', '2', '8');
 INSERT INTO `tb_periode_panitia` VALUES ('20171', null, '9');
 INSERT INTO `tb_periode_panitia` VALUES ('20172', '14', '12');
@@ -296,7 +296,6 @@ INSERT INTO `tb_speaker` VALUES ('12', '2017101001', 'Mirana', 'Institusi03', 's
 INSERT INTO `tb_speaker` VALUES ('13', '2017101002', 'Pudge', 'Institusi01', 'speakers_1502679256.jpg', '+62 111-1111-111', 'pem1@semnas.com', null);
 INSERT INTO `tb_speaker` VALUES ('14', '2017101002', 'Wind Rangger', 'Institusi02', 'speakers_1502679293.jpg', '+62 222-2222-222', 'pem2@semnas.com', null);
 INSERT INTO `tb_speaker` VALUES ('15', '2017101002', 'Rikimaru', 'Institusi03', 'speakers_1502679511.jpg', '+62 333-3333-333', 'pem3@semnas.com', null);
-INSERT INTO `tb_speaker` VALUES ('16', null, 'Prof. Dr. Ir. Suhono Harso Supangkat', 'ITB', 'speakers_15035497880.jpg', '1111111111', 'qwerty@asd.com', null);
 INSERT INTO `tb_speaker` VALUES ('18', '2017201003', 'asdas1', 'asdasd', 'speakers_15035517840.jpg', '1111111', 'asdas@asdasd.asd', null);
 INSERT INTO `tb_speaker` VALUES ('19', '2017201003', 'asdas2', 'asdasd', 'speakers_15035517841.jpg', '1111111', 'asdas@asdasd.asd', null);
 INSERT INTO `tb_speaker` VALUES ('20', '2017201003', 'asdas3', 'asdasd', 'speakers_15035517842.jpg', '1111111', 'asdas@asdasd.asd', null);
