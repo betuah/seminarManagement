@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2017-08-23 15:45:13
+Date: 2017-08-24 14:31:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,6 +34,7 @@ CREATE TABLE `tb_byr` (
 -- Records of tb_byr
 -- ----------------------------
 INSERT INTO `tb_byr` VALUES ('PAY0000000001', '15000', '2017-07-22', '20171010010001', '1');
+INSERT INTO `tb_byr` VALUES ('PAY0000000002', '65000', '2017-08-24', '20172010030001', '1');
 
 -- ----------------------------
 -- Table structure for tb_event
@@ -68,6 +69,7 @@ CREATE TABLE `tb_event` (
 -- ----------------------------
 INSERT INTO `tb_event` VALUES ('2017101001', 'Judul Seminar 1', '2017-09-16', '2017-09-10', 'JRU001', '1', '15000', '100', '20171', 'AUDI', 'bg_event_1499489272.jpg', '0', 'Keterangan', '7');
 INSERT INTO `tb_event` VALUES ('2017101002', 'Judul Seminar 2', '2017-08-26', '2017-08-19', 'JRU001', '1', '50000', '1500', '20172', 'REKTORAT', 'bg_event_1499489303.jpg', '0', 'Keterangan', '7');
+INSERT INTO `tb_event` VALUES ('2017201003', 'Internet Of Things Untuk Pembangunan Kota Cerdas', '2017-09-28', '2017-09-27', 'JRU001', '1', '65000', '1200', '20172', 'REKTORAT', 'bg_event_1503551784.jpg', '0', null, null);
 
 -- ----------------------------
 -- Table structure for tb_jen_event
@@ -244,6 +246,7 @@ CREATE TABLE `tb_reg` (
 -- ----------------------------
 INSERT INTO `tb_reg` VALUES ('20171010010001', '2013143067', '1', '2017-07-21', '2017101001', 'barcode_150113726120171010010002.jpg', '2', null);
 INSERT INTO `tb_reg` VALUES ('20171010010002', '2013142092', '1', '2017-07-27', '2017101001', 'barcode_150113726120171010010002.jpg', '0', '2017-08-03');
+INSERT INTO `tb_reg` VALUES ('20172010030001', '2015143067', '1', '2017-08-24', '2017201003', 'barcode_150355409820172010030001.jpg', '2', '2017-09-03');
 
 -- ----------------------------
 -- Table structure for tb_sertifikat
@@ -264,6 +267,7 @@ CREATE TABLE `tb_sertifikat` (
 -- Records of tb_sertifikat
 -- ----------------------------
 INSERT INTO `tb_sertifikat` VALUES ('820171010010001', '20171010010001', '1', '2017101001', null);
+INSERT INTO `tb_sertifikat` VALUES ('820172010030001', '20172010030001', '1', '2017201003', null);
 
 -- ----------------------------
 -- Table structure for tb_speaker
@@ -280,8 +284,8 @@ CREATE TABLE `tb_speaker` (
   `remark` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_speaker`),
   KEY `fk_evnt` (`id_event`),
-  CONSTRAINT `fk_evnt` FOREIGN KEY (`id_event`) REFERENCES `tb_event` (`id_event`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+  CONSTRAINT `fk_evnt` FOREIGN KEY (`id_event`) REFERENCES `tb_event` (`id_event`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tb_speaker
@@ -292,6 +296,10 @@ INSERT INTO `tb_speaker` VALUES ('12', '2017101001', 'Mirana', 'Institusi03', 's
 INSERT INTO `tb_speaker` VALUES ('13', '2017101002', 'Pudge', 'Institusi01', 'speakers_1502679256.jpg', '+62 111-1111-111', 'pem1@semnas.com', null);
 INSERT INTO `tb_speaker` VALUES ('14', '2017101002', 'Wind Rangger', 'Institusi02', 'speakers_1502679293.jpg', '+62 222-2222-222', 'pem2@semnas.com', null);
 INSERT INTO `tb_speaker` VALUES ('15', '2017101002', 'Rikimaru', 'Institusi03', 'speakers_1502679511.jpg', '+62 333-3333-333', 'pem3@semnas.com', null);
+INSERT INTO `tb_speaker` VALUES ('16', null, 'Prof. Dr. Ir. Suhono Harso Supangkat', 'ITB', 'speakers_15035497880.jpg', '1111111111', 'qwerty@asd.com', null);
+INSERT INTO `tb_speaker` VALUES ('18', '2017201003', 'asdas1', 'asdasd', 'speakers_15035517840.jpg', '1111111', 'asdas@asdasd.asd', null);
+INSERT INTO `tb_speaker` VALUES ('19', '2017201003', 'asdas2', 'asdasd', 'speakers_15035517841.jpg', '1111111', 'asdas@asdasd.asd', null);
+INSERT INTO `tb_speaker` VALUES ('20', '2017201003', 'asdas3', 'asdasd', 'speakers_15035517842.jpg', '1111111', 'asdas@asdasd.asd', null);
 
 -- ----------------------------
 -- Table structure for tb_type_usr
@@ -337,6 +345,7 @@ CREATE TABLE `tb_usr` (
 INSERT INTO `tb_usr` VALUES ('2013142092', 'Nurdin', 'ee11cbb19052e40b07aac0ca060c23ee', 'nurdin@indomedica.net', 'Pria', '082311428337', 'Jakarta', '2017-07-08', '3', 'Dosen');
 INSERT INTO `tb_usr` VALUES ('2013143067', 'Betuah Anugerah', 'e716f5f9ab300aa5e3d62147d0d35ca3', 'betuah@seamolec.org', 'Laki-laki', '082929292929', 'Bogor', '2017-08-13', '3', 'Mahasiswa');
 INSERT INTO `tb_usr` VALUES ('2014133067', 'Testing User', '7815696ecbf1c96e6894b779456d330e', 'testing@semnas.com', 'Pria', '+62 111-1111-1111', 'asdasdasdasdasdasd', '2017-08-02', '3', 'Dosen');
+INSERT INTO `tb_usr` VALUES ('2015143067', 'Polinier', 'a8f5f167f44f4964e6c998dee827110c', 'polinier@matematika.com', 'Laki-laki', '123123123123', 'asdasdasdasdasd asd as dasd asd asd a das as adsasda sda sdas d asda asda s dasd a d qwew eqwrqwr wer we ter t dfgsdfzxczxcz x czxc zc', '2017-08-24', '3', 'mahasiswa');
 INSERT INTO `tb_usr` VALUES ('2017143067', 'asdasd', 'a8f5f167f44f4964e6c998dee827110c', 'asdasdasd@asdsa.asd', 'Laki-laki', '12312312312', 'asdasdasdas asda sdas asd asda sdas asd', '2017-08-21', '3', 'mahasiswa');
 INSERT INTO `tb_usr` VALUES ('admin@semnas.com', 'Admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@semnas.com', 'Pria', '082311428337', 'Alamat', '2017-07-07', '1', 'Dosen');
 
@@ -400,11 +409,17 @@ tb_reg.id_jen_reg,
 tb_event.id_event,
 tb_event.harga,
 tb_byr.stat_byr,
-tb_byr.tgl_bayar
+tb_byr.tgl_bayar,
+tb_event.judul_event,
+tb_usr.id_usr,
+tb_usr.nama_usr,
+tb_jen_reg.jen_reg
 FROM
 tb_reg
 INNER JOIN tb_byr ON tb_byr.id_reg = tb_reg.id_reg
-INNER JOIN tb_event ON tb_reg.id_event = tb_event.id_event ;
+INNER JOIN tb_event ON tb_reg.id_event = tb_event.id_event
+INNER JOIN tb_usr ON tb_reg.id_usr = tb_usr.id_usr
+INNER JOIN tb_jen_reg ON tb_reg.id_jen_reg = tb_jen_reg.id_jen_reg ;
 
 -- ----------------------------
 -- View structure for v_detail_event
