@@ -54,7 +54,6 @@
                   window.location.href='".base_url()."';
                   </SCRIPT>";
           } else {
-            echo "string";
             $id_usr       = $this->input->post('nim');
             $nama_usr     = $this->input->post('nama_usr');
             $password     = $this->input->post('password');

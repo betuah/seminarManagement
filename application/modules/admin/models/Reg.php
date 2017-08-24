@@ -140,7 +140,20 @@
                 );
 
                 $this->db->insert('tb_reg' , $data);
-                return $mssg = '1';
+                if ($this->session->userdata('level')=='1' || $this->session->userdata('level')=='4') {
+                  return $mssg = '1';
+                } else {
+                  $jen_r = '';
+                  if($this->input->post('jenreg')=='1') {
+                    $jen_r = 'Peserta';
+                  } else {
+                    $jen_r = 'Pemakalah';
+                  }
+                  return $mssg = "<SCRIPT LANGUAGE='JavaScript'>
+                        window.alert('Anda berhasil mendaftar sebagai ".$jen_r." pada event ini. Note : Segera Lakukan pembayaran untuk mendapatkan e-ticket sebelum quota habis')
+                        window.location.href='".base_url()."User#U_content/view_user/dashboard';
+                        </SCRIPT>";
+                }
               }
             }
           }

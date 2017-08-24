@@ -19,7 +19,7 @@
 		<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 			<!-- Widget ID (each widget will need unique ID)-->
 			<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
-				
+
         <header>
 
           <span class="widget-icon"> <i class="fa fa-table"></i> </span>
@@ -49,12 +49,11 @@
 								</tr>
 							</thead>
 							<tbody>
-							<?php 
+							<?php
 							if(empty($get_v_tiket)){}
 								else{
 							$no=1;
 							foreach ($get_v_tiket as $v_tik): ?>
-							<?php if ($v_tik['status']== '1' || $v_tik['status'] =='2'): ?>	
 					          <tr>
 					          	<td><?php echo $no; ?></td>
 					            <td><?php echo $v_tik['id_reg'] ?></td>
@@ -66,7 +65,7 @@
 								<td><?php echo $v_tik['harga'] ?></td>
 								<td>
 									<ul class="demo-btns">
-										
+
 										<div hidden="">
 											<a href="<?php echo base_url() . 'user/cetak/view_user/tiket/' . $v_tik['id_reg'] ?>" data-toggle="modal" data-target="#ctiket">
 												<button type="button" name="button" class="btn btn-info">
@@ -84,7 +83,7 @@
 									</ul>
 								</td>
 					          </tr>
-					          <?php endif ?>
+					         
 							<?php $no++; endforeach;} ?>
 					      </tbody>
 						</table>
@@ -107,10 +106,10 @@
   </div>
 </section>
 <script type="text/javascript">
-	
+
 	pageSetUp();
-	
-	// pagefunction	
+
+	// pagefunction
 	var pagefunction = function() {
 		//console.log("cleared");
 		/* BASIC ;*/
@@ -118,7 +117,7 @@
 			var responsiveHelper_datatable_fixed_column = undefined;
 			var responsiveHelper_datatable_col_reorder = undefined;
 			var responsiveHelper_datatable_tabletools = undefined;
-			
+
 			var breakpointDefinition = {
 				tablet : 1024,
 				phone : 480
@@ -144,7 +143,7 @@
 			});
 
 		/* END BASIC */
-		
+
 		/* COLUMN FILTER  */
 	    var otable = $('#datatable_fixed_column').DataTable({
 	    	//"bFilter": false,
@@ -158,7 +157,7 @@
 					"<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
 			"oLanguage": {
 				"sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
-			},		
+			},
 			"autoWidth" : true,
 			"preDrawCallback" : function() {
 				// Initialize the responsive datatables helper once.
@@ -171,24 +170,24 @@
 			},
 			"drawCallback" : function(oSettings) {
 				responsiveHelper_datatable_fixed_column.respond();
-			}		
-		
+			}
+
 	    });
-	    
+
 	    // custom toolbar
 	    $("div.toolbar").html('<div class="text-right"><img src="img/logo.png" alt="SmartAdmin" style="width: 111px; margin-top: 3px; margin-right: 10px;"></div>');
-	    	   
+
 	    // Apply the filter
 	    $("#datatable_fixed_column thead th input[type=text]").on( 'keyup change', function () {
-	    	
+
 	        otable
 	            .column( $(this).parent().index()+':visible' )
 	            .search( this.value )
 	            .draw();
-	            
+
 	    } );
-	    /* END COLUMN FILTER */   
-    
+	    /* END COLUMN FILTER */
+
 		/* COLUMN SHOW - HIDE */
 		$('#datatable_col_reorder').dataTable({
 			"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-6 hidden-xs'C>r>"+
@@ -209,15 +208,15 @@
 			},
 			"drawCallback" : function(oSettings) {
 				responsiveHelper_datatable_col_reorder.respond();
-			}			
+			}
 		});
-		
+
 		/* END COLUMN SHOW - HIDE */
 
 		/* TABLETOOLS */
 		$('#datatable_tabletools').dataTable({
-			
-			// Tabletools options: 
+
+			// Tabletools options:
 			//   https://datatables.net/extensions/tabletools/button_options
 			"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-6 hidden-xs'T>r>"+
 					"t"+
@@ -257,13 +256,13 @@
 				responsiveHelper_datatable_tabletools.respond();
 			}
 		});
-		
+
 		/* END TABLETOOLS */
 
 	};
 
 	// load related plugins
-	
+
 	loadScript("<?php echo base_url().'assets/smartadmin/js/plugin/datatables/jquery.dataTables.min.js' ?>", function(){
 		loadScript("<?php echo base_url().'assets/smartadmin/js/plugin/datatables/dataTables.colVis.min.js' ?>", function(){
 			loadScript("<?php echo base_url().'assets/smartadmin/js/plugin/datatables/dataTables.tableTools.min.js' ?>", function(){
@@ -275,4 +274,3 @@
 	});
 
 </script>
-	

@@ -33,6 +33,7 @@
       } else {
 
         if ($r->num_rows() == 1) {
+          $stat = '';
           foreach ($r->result_array() as $reg) {
             $stat = $reg['status'];
           }

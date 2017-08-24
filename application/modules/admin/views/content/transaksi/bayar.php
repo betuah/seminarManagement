@@ -126,7 +126,15 @@
 					            <tr>
 					                <td><?php echo $v_byr['id_bayar'] ?></td>
 					                <td><?php echo $v_byr['id_reg'] ?></td>
-					                <td><?php echo $v_byr['stat_byr'] ?></td>
+					                <td>
+														<?php
+															if($v_byr['stat_byr'] == '1') {
+																echo "LUNAS";
+															} else {
+																echo "Belum Bayar";
+															}
+														?>
+													</td>
 					                <td>Rp <?php echo $v_byr['total_bayar'] ?></td>
 													<td><?php echo $v_byr['tgl_bayar'] ?></td>
 													<td>

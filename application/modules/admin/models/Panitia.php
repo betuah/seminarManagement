@@ -120,7 +120,7 @@
               'email'       => $this->input->post('email'),
               'password'    => md5($repass),
               'tipe_panitia'=> $this->input->post('pan'),
-              'id_tipe_usr' => "4",
+              'id_type_usr' => "4",
               'id_jurusan'  => $this->input->post('jur')
             );
 

@@ -43,7 +43,7 @@
             <div class="carousel-caption">
               <h2 class="wow fadeInRight" data-wow-delay="300ms">Selamat Data Di Website Seminar Nasional Universitas Pamulang <br>
                 Silahkan geser dan Pilih Tema Seminar Sesuai Program Studi Anda</h2><br>
-                <center><a class="btn btn-lg btn-common wow fadeInLeft" data-wow-delay="300ms" href="<?php echo base_url();?>/auth">Login</a></center>
+                <center><a class="btn btn-lg btn-common wow fadeInLeft" data-wow-delay="300ms" href="<?php echo base_url();?>auth">Login</a></center>
             </div>
           </div>
          <?php foreach($judul as $data) {

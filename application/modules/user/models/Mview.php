@@ -8,7 +8,7 @@
 
     public function get_status() {
             $this->db->select('*');
-            $this->db->from('v_e-ticket');
+            $this->db->from('v_bayar');
             $this->db->having('id_usr',$this->session->userdata('uid'));
             $this->db->order_by('id_usr','asc');
             $query = $this->db->get();
@@ -32,7 +32,7 @@
       return $data = $this->db->get('tb_speaker')->result_array();
     }
         //Pemakalah
-        public function get_pmkalah() 
+        public function get_pmkalah()
         {
             $this->db->select('*');
             $this->db->from('v_jen_reg');

@@ -105,7 +105,7 @@
 									<th data-hide="phone">No. </th>
 									<th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs">
 									</i> ID Registrasi</th>
-                  					<th data-hide="phone"><i class="fa fa-fw fa- text-muted hidden-md hidden-sm hidden-xs"></i> 
+                  					<th data-hide="phone"><i class="fa fa-fw fa- text-muted hidden-md hidden-sm hidden-xs"></i>
 									Nama User</th>
                   					<th data-hide="phone"><i class="fa fa-fw fa- text-muted hidden-md hidden-sm hidden-xs"></i>
                   					Jenis Registrasi</th>
@@ -119,7 +119,7 @@
 							<tbody>
                 				<?php
                 					if (empty($get_v_status)) {
-                					}else{ 
+                					}else{
                 					$no=1;
                 					foreach ($get_v_status as $v_status): ?>
 										<tr>
@@ -128,14 +128,14 @@
 											<td><?php echo $v_status['nama_usr'] ?></td>
 											<td><?php echo $v_status['jen_reg'] ?></td>
 											<td><?php echo $v_status['judul_event'] ?></td>
-											<td><?php if($v_status['status'] == '0' ){
+											<td><?php if($v_status['stat_byr'] == '0' ){
 														echo "Belum Membayar";
-													} elseif($v_status['status'] == '1' ){
+													} elseif($v_status['stat_byr'] == '1' ){
 														echo "Lunas";
-													} elseif($v_status['status'] == '2' ){
+													} elseif($v_status['stat_byr'] == '2' ){
 														echo "Hadir";
 													}
-												?>			
+												?>
 											</td>
 											<td hidden="">
             			   						<div class="demo-btns">
@@ -193,46 +193,46 @@
 	 */
 
 	pageSetUp();
-	
+
 	/*
 	 * ALL PAGE RELATED SCRIPTS CAN GO BELOW HERE
 	 * eg alert("my home function");
-	 * 
+	 *
 	 * var pagefunction = function() {
 	 *   ...
 	 * }
 	 * loadScript("js/plugin/_PLUGIN_NAME_.js", pagefunction);
-	 * 
+	 *
 	 */
-	
+
 	// PAGE RELATED SCRIPTS
-	
-	// pagefunction	
+
+	// pagefunction
 	var pagefunction = function() {
 		//console.log("cleared");
-		
+
 		/* // DOM Position key index //
-		
+
 			l - Length changing (dropdown)
 			f - Filtering input (search)
 			t - The Table! (datatable)
 			i - Information (records)
 			p - Pagination (paging)
-			r - pRocessing 
+			r - pRocessing
 			< and > - div elements
 			<"#id" and > - div with an id
 			<"class" and > - div with a class
 			<"#id.class" and > - div with an id and class
-			
+
 			Also see: http://legacy.datatables.net/usage/features
-		*/	
+		*/
 
 		/* BASIC ;*/
 			var responsiveHelper_dt_basic = undefined;
 			var responsiveHelper_datatable_fixed_column = undefined;
 			var responsiveHelper_datatable_col_reorder = undefined;
 			var responsiveHelper_datatable_tabletools = undefined;
-			
+
 			var breakpointDefinition = {
 				tablet : 1024,
 				phone : 480
@@ -244,7 +244,7 @@
 					"<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
 				"oLanguage": {
 					"sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
-				},	
+				},
 				"autoWidth" : true,
 				"preDrawCallback" : function() {
 					// Initialize the responsive datatables helper once.
@@ -261,7 +261,7 @@
 			});
 
 		/* END BASIC */
-		
+
 		/* COLUMN FILTER  */
 	    var otable = $('#datatable_fixed_column').DataTable({
 	    	//"bFilter": false,
@@ -275,7 +275,7 @@
 					"<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
 			"oLanguage": {
 				"sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
-			},		
+			},
 			"autoWidth" : true,
 			"preDrawCallback" : function() {
 				// Initialize the responsive datatables helper once.
@@ -288,24 +288,24 @@
 			},
 			"drawCallback" : function(oSettings) {
 				responsiveHelper_datatable_fixed_column.respond();
-			}		
-		
+			}
+
 	    });
-	    
+
 	    // custom toolbar
 	    $("div.toolbar").html('<div class="text-right"><img src="img/logo.png" alt="SmartAdmin" style="width: 111px; margin-top: 3px; margin-right: 10px;"></div>');
-	    	   
+
 	    // Apply the filter
 	    $("#datatable_fixed_column thead th input[type=text]").on( 'keyup change', function () {
-	    	
+
 	        otable
 	            .column( $(this).parent().index()+':visible' )
 	            .search( this.value )
 	            .draw();
-	            
+
 	    } );
-	    /* END COLUMN FILTER */   
-    
+	    /* END COLUMN FILTER */
+
 		/* COLUMN SHOW - HIDE */
 		$('#datatable_col_reorder').dataTable({
 			"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-6 hidden-xs'C>r>"+
@@ -326,15 +326,15 @@
 			},
 			"drawCallback" : function(oSettings) {
 				responsiveHelper_datatable_col_reorder.respond();
-			}			
+			}
 		});
-		
+
 		/* END COLUMN SHOW - HIDE */
 
 		/* TABLETOOLS */
 		$('#datatable_tabletools').dataTable({
-			
-			// Tabletools options: 
+
+			// Tabletools options:
 			//   https://datatables.net/extensions/tabletools/button_options
 			"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-6 hidden-xs'T>r>"+
 					"t"+
@@ -374,13 +374,13 @@
 				responsiveHelper_datatable_tabletools.respond();
 			}
 		});
-		
+
 		/* END TABLETOOLS */
 
 	};
 
 	// load related plugins
-	
+
 	loadScript("assets/smartadmin/js/plugin/datatables/jquery.dataTables.min.js", function(){
 		loadScript("assets/smartadmin/js/plugin/datatables/dataTables.colVis.min.js", function(){
 			loadScript("assets/smartadmin/js/plugin/datatables/dataTables.tableTools.min.js", function(){

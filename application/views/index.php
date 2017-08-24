@@ -19,7 +19,15 @@
     </head>
     <body>
       <!-- Start Content -->
-        <?php $this->load->view($req) ?>
+        <?php
+          if ($this->session->userdata('level')=='1' || $this->session->userdata('level')=='4') {
+            redirect(base_url().'Admin');
+          } elseif ($this->session->userdata('level')=='3') {
+            redirect(base_url().'User');
+          } else {
+            $this->load->view($req);
+          }
+        ?>
       <!-- End Content -->
 
       <!-- Start Java Script -->

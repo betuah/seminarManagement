@@ -360,7 +360,7 @@
 									<h4 class="modal-title" id="myModalLabel">Registrasi</h4>
 								</div>
 								<div class="modal-body no-padding">
-									<form action="<?php echo base_url(); ?>admin/create/transaksi/reg" method="post" class="smart-form">
+									<form action="<?php echo base_url(); ?>user/user/transaksi/reg" method="post" class="smart-form">
 										<header>
 											Form Pendaftaran Seminar
 										</header>

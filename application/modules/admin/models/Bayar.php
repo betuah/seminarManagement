@@ -33,8 +33,11 @@
               window.location.href='".base_url()."Admin#A_content/transaksi/bayar';
               </SCRIPT>";
       } else {
-
-        if ($r->num_rows() !== 1) {
+        $data = array(
+    						'id_reg' => $this->input->post('noreg', TRUE)
+    		);
+        $rc      = $this->db->get_where('tb_reg', $data);
+        if ($rc->num_rows() !== 1) {
           return $mssg = "<SCRIPT LANGUAGE='JavaScript'>
                 window.alert('ID Registrasi yang Anda masukan tidak tersedia')
                 window.location.href='".base_url()."Admin#A_content/transaksi/bayar';
@@ -43,8 +46,9 @@
           $data2 = array(
       						'id_reg' => $this->input->post('noreg', TRUE)
       		);
-          $r2      = $this->db->get_where('tb_reg', $data2);
+          $r2      = $this->db->get_where('v_e-ticket', $data2);
 
+          $ide = '';
           foreach ($r2->result_array() as $reg) {
             $qty      = $reg['quota'];
             $ide      = $reg['id_event'];
@@ -92,7 +96,7 @@
                   'total_bayar'   => $this->input->post('tbyr'),
                   'id_reg'        => $this->input->post('noreg'),
                   'stat_byr'      => "1",
-                  'tgl_bayar'     => $cdate
+                  'tgl_bayar'     => date ("Y-m-d")
                 );
                 $this->db->insert('tb_byr' , $data);
                 return $mssg = '1';
