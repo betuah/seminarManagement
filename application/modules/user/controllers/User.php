@@ -42,7 +42,7 @@
 			$data['get_v_sertifikat'] 	= $this->sert->get();
 			$data['get_v_paper'] 		= $this->paper->get_paper();
 			$data['get_v_tiket']  		= $this->tiket->get_tiket();
-			
+
 			//Auto Id Reg
 			$data['auto_id_reg']		= $this->dashboard->auto_id_reg();
 			$data['auto_id_paper']      = $this->paper->auto_id_paper();
@@ -63,18 +63,31 @@
 			$ins = $this->paper->insert();
 			//redirect('User#U_content/'.$content.'/'.$pages);
 
-			if ($ins == '1') 
+			if ($ins == '1')
 			{
 				 echo "<SCRIPT LANGUAGE='JavaScript'>
                      window.alert('File Telah Tersimpan')
                      window.location.href='".base_url()."User#U_content/view_user/paper';
                      </SCRIPT>";
-			} 
-			else 
+			}
+			else
 			{
 				echo $ins;
 			}
     	}
 
+			public function daftar() {
+				$insrt = $this->dashboard->daftar();
+
+				if ($insrt == '1') {
+					echo "<SCRIPT LANGUAGE='JavaScript'>
+									window.alert('Data Berhasil Di Simpan')
+									window.location.href='".base_url()."Admin#A_content/User#U_content/view_user/dashboard';
+									</SCRIPT>";
+					// redirect('Admin#A_content/'.$content.'/'.$pages);
+				} else {
+					echo $insrt;
+				}
+	    }
 	}
 ?>
