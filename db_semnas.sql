@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2017-08-24 16:57:01
+Date: 2017-08-26 13:03:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -67,7 +67,7 @@ CREATE TABLE `tb_event` (
 -- ----------------------------
 -- Records of tb_event
 -- ----------------------------
-INSERT INTO `tb_event` VALUES ('2017101001', 'Judul Seminar 1', '2017-09-16', '2017-09-10', 'JRU001', '1', '15000', '100', null, 'AUDI', 'bg_event_1499489272.jpg', '0', 'Keterangan', '7');
+INSERT INTO `tb_event` VALUES ('2017101001', 'Judul Seminar 1', '2017-09-16', '2017-09-10', 'JRU001', '1', '15000', '100', '20171', 'AUDI', 'bg_event_1499489272.jpg', '0', 'Keterangan', '7');
 INSERT INTO `tb_event` VALUES ('2017101002', 'Judul Seminar 2', '2017-08-26', '2017-08-19', 'JRU001', '1', '50000', '1500', '20172', 'REKTORAT', 'bg_event_1499489303.jpg', '0', 'Keterangan', '7');
 INSERT INTO `tb_event` VALUES ('2017201003', 'Internet Of Things Untuk Pembangunan Kota Cerdas', '2017-09-28', '2017-09-27', 'JRU001', '1', '65000', '1200', '20172', 'REKTORAT', 'bg_event_1503551784.jpg', '0', null, null);
 
@@ -160,7 +160,7 @@ CREATE TABLE `tb_panitia` (
   KEY `fk_panitia_tipe_usr` (`id_type_usr`),
   CONSTRAINT `fk_panitia_jur` FOREIGN KEY (`id_jurusan`) REFERENCES `tb_jurusan` (`id_jurusan`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `fk_panitia_tipe_usr` FOREIGN KEY (`id_type_usr`) REFERENCES `tb_type_usr` (`id_type_usr`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tb_panitia
@@ -168,13 +168,12 @@ CREATE TABLE `tb_panitia` (
 INSERT INTO `tb_panitia` VALUES ('1', 'Betuah Anugerah', 'Anggota', 'JRU001', '081234234123', 'betuahanugerah@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', '4', '1');
 INSERT INTO `tb_panitia` VALUES ('2', 'John', 'Ketua', 'JRU001', '081234234123', 'ketua@semnas.com', '00719910bb805741e4b7f28527ecb3ad', '4', '1');
 INSERT INTO `tb_panitia` VALUES ('3', 'Doe', 'Anggota', 'JRU001', '081234234123', 'anggota@semnas.com', 'dfb9e85bc0da607ff76e0559c62537e8', '4', '1');
-INSERT INTO `tb_panitia` VALUES ('13', 'Doni', 'Anggota', 'JRU002', '+62 813-1010-101', 'doni@semnas.com', 'f9330f242ff516494a21d3fd94f0807f', '4', '1');
-INSERT INTO `tb_panitia` VALUES ('14', 'Bagas', 'Bendahara', 'JRU002', '+62 101-0101-010', 'bagas@semnas.com', '5ffd9bb73b00bce4feeb77e2d12722da', '4', '1');
-INSERT INTO `tb_panitia` VALUES ('15', 'Lilis', 'Anggota', 'JRU002', '+62 010-1010-101', 'lilis@semnas.com', '7b080e20389cc733ff4ca9525851d90f', '4', '1');
+INSERT INTO `tb_panitia` VALUES ('13', 'Doni', 'Anggota', 'JRU001', '+62 813-1010-101', 'doni@semnas.com', 'f9330f242ff516494a21d3fd94f0807f', '4', '1');
+INSERT INTO `tb_panitia` VALUES ('14', 'Bagas', 'Bendahara', 'JRU001', '+62 101-0101-010', 'bagas@semnas.com', '5ffd9bb73b00bce4feeb77e2d12722da', '4', '1');
+INSERT INTO `tb_panitia` VALUES ('15', 'Lilis', 'Anggota', 'JRU001', '+62 010-1010-101', 'lilis@semnas.com', '7b080e20389cc733ff4ca9525851d90f', '4', '1');
 INSERT INTO `tb_panitia` VALUES ('16', 'test', 'Anggota', 'JRU001', '081310114567', 'testing@semnas.com', 'a8f5f167f44f4964e6c998dee827110c', '4', '1');
 INSERT INTO `tb_panitia` VALUES ('18', 'Ruli Handrian', null, 'JRU001', '081234234123', 'rulihandrian2710@gmail.com', 'e716f5f9ab300aa5e3d62147d0d35ca3', '4', '0');
-INSERT INTO `tb_panitia` VALUES ('19', 'bendahara', 'Bendahara', 'JRU001', '+62 111-2222-333', 'bendahara@semnas.com', 'c9ccd7f3c1145515a9d3f7415d5bcbea', '4', null);
-INSERT INTO `tb_panitia` VALUES ('20', 'asd', null, 'JRU001', '123123123', 'asdasdasd@asdsa.asd', '7815696ecbf1c96e6894b779456d330e', '4', '0');
+INSERT INTO `tb_panitia` VALUES ('21', 'Bendahara', 'Bendahara', 'JRU001', '+62 111-1111-111', 'bendahara@semnas.com', 'c9ccd7f3c1145515a9d3f7415d5bcbea', '4', '1');
 
 -- ----------------------------
 -- Table structure for tb_paper
@@ -195,7 +194,7 @@ CREATE TABLE `tb_paper` (
 -- ----------------------------
 -- Records of tb_paper
 -- ----------------------------
-INSERT INTO `tb_paper` VALUES ('MKH000001', 'ssfddsf', 'paper_1501918109.pdf', null, 'Waiting', '2017-08-05');
+INSERT INTO `tb_paper` VALUES ('MKH000001', 'ssfddsf', 'paper_1501918109.pdf', '20171010010001', 'Waiting', '2017-08-05');
 
 -- ----------------------------
 -- Table structure for tb_periode_panitia
@@ -215,7 +214,7 @@ CREATE TABLE `tb_periode_panitia` (
 -- Records of tb_periode_panitia
 -- ----------------------------
 INSERT INTO `tb_periode_panitia` VALUES ('20171', '2', '8');
-INSERT INTO `tb_periode_panitia` VALUES ('20171', null, '9');
+INSERT INTO `tb_periode_panitia` VALUES ('20171', '1', '9');
 INSERT INTO `tb_periode_panitia` VALUES ('20172', '14', '12');
 INSERT INTO `tb_periode_panitia` VALUES ('20172', '13', '19');
 
@@ -246,6 +245,7 @@ CREATE TABLE `tb_reg` (
 -- ----------------------------
 INSERT INTO `tb_reg` VALUES ('20171010010001', '2013143067', '1', '2017-07-21', '2017101001', 'barcode_150113726120171010010002.jpg', '2', null);
 INSERT INTO `tb_reg` VALUES ('20171010010002', '2013142092', '1', '2017-07-27', '2017101001', 'barcode_150113726120171010010002.jpg', '0', '2017-08-03');
+INSERT INTO `tb_reg` VALUES ('20171010010003', '2015143067', '1', '2017-08-25', '2017101001', 'barcode_150365704720171010010003.jpg', '0', '2017-09-01');
 INSERT INTO `tb_reg` VALUES ('20172010030001', '2015143067', '1', '2017-08-24', '2017201003', 'barcode_150355409820172010030001.jpg', '2', '2017-09-03');
 
 -- ----------------------------
@@ -347,6 +347,7 @@ INSERT INTO `tb_usr` VALUES ('2014133067', 'Testing User', '7815696ecbf1c96e6894
 INSERT INTO `tb_usr` VALUES ('2015143067', 'Polinier', 'a8f5f167f44f4964e6c998dee827110c', 'polinier@matematika.com', 'Laki-laki', '123123123123', 'asdasdasdasdasd asd as dasd asd asd a das as adsasda sda sdas d asda asda s dasd a d qwew eqwrqwr wer we ter t dfgsdfzxczxcz x czxc zc', '2017-08-24', '3', 'mahasiswa');
 INSERT INTO `tb_usr` VALUES ('2017143067', 'asdasd', 'a8f5f167f44f4964e6c998dee827110c', 'asdasdasd@asdsa.asd', 'Laki-laki', '12312312312', 'asdasdasdas asda sdas asd asda sdas asd', '2017-08-21', '3', 'mahasiswa');
 INSERT INTO `tb_usr` VALUES ('admin@semnas.com', 'Admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@semnas.com', 'Pria', '082311428337', 'Alamat', '2017-07-07', '1', 'Dosen');
+INSERT INTO `tb_usr` VALUES ('asd@asd.asd', 'Test', '7815696ecbf1c96e6894b779456d330e', 'asd@asd.asd', 'Laki-laki', '082929292929', 'asd', '2017-08-26', '3', 'external');
 
 -- ----------------------------
 -- View structure for api_byr
@@ -594,7 +595,8 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER  VIEW
 tb_reg.id_reg,
 tb_usr.nama_usr,
 tb_reg.`status`,
-tb_event.judul_event
+tb_event.judul_event,
+tb_reg.id_event
 FROM
 tb_reg
 INNER JOIN tb_usr ON tb_reg.id_usr = tb_usr.id_usr
@@ -604,14 +606,15 @@ INNER JOIN tb_event ON tb_reg.id_event = tb_event.id_event ;
 -- View structure for v_kepanitiaan
 -- ----------------------------
 DROP VIEW IF EXISTS `v_kepanitiaan`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`  VIEW `v_kepanitiaan` AS SELECT
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER  VIEW `v_kepanitiaan` AS SELECT
 tb_panitia.tipe_panitia,
 tb_panitia.id_panitia,
 tb_panitia.nama,
 tb_jurusan.nama_jur,
 tb_panitia.tlpn,
 tb_panitia.email,
-tb_periode_panitia.id_periode
+tb_periode_panitia.id_periode,
+tb_panitia.`status`
 FROM
 tb_jurusan
 INNER JOIN tb_panitia ON tb_panitia.id_jurusan = tb_jurusan.id_jurusan
@@ -647,6 +650,27 @@ tb_panitia.`status`
 FROM
 tb_panitia
 INNER JOIN tb_jurusan ON tb_panitia.id_jurusan = tb_jurusan.id_jurusan ;
+
+-- ----------------------------
+-- View structure for v_panitia_seminar
+-- ----------------------------
+DROP VIEW IF EXISTS `v_panitia_seminar`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER  VIEW `v_panitia_seminar` AS SELECT
+tb_periode_panitia.id_panitia,
+tb_panitia.nama,
+tb_panitia.tipe_panitia,
+tb_panitia.tlpn,
+tb_panitia.email,
+tb_panitia.`status`,
+tb_periode_panitia.id_periode,
+tb_event.id_event,
+tb_jurusan.nama_jur,
+tb_event.id_jurusan
+FROM
+tb_periode_panitia
+INNER JOIN tb_panitia ON tb_periode_panitia.id_panitia = tb_panitia.id_panitia
+INNER JOIN tb_event ON tb_event.id_periode = tb_periode_panitia.id_periode
+INNER JOIN tb_jurusan ON tb_panitia.id_jurusan = tb_jurusan.id_jurusan AND tb_event.id_jurusan = tb_jurusan.id_jurusan ;
 
 -- ----------------------------
 -- View structure for v_paper

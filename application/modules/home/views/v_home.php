@@ -20,7 +20,7 @@
 
                 <!-- logo -->
                 <div class="site-branding">
-                    <a class="logo" href="index.html">
+                    <a class="logo" href="<?php echo base_url();?>">
 
                         <!-- logo image  -->
                         <img src="<?php echo base_url();?>assets/landingpages/assets/images/logo.png" alt="Logo">

@@ -10,7 +10,14 @@
 		}
 
     public function get() {
+      //$id = $this->get('id');
       $query = $this->db->get('v_kehadiran');
+      return $query->result_array();
+    }
+
+    public function get_id($id) {
+
+      $query = $this->db->get_where('v_kehadiran', array('id_event' => $id));
       return $query->result_array();
     }
 

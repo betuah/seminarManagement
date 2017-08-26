@@ -42,7 +42,7 @@
 					<div class="widget-body no-padding">
 						<form action="<?php echo base_url() . 'admin/update/transaksi/absen/1'?>" method="post" class="smart-form">
 							<header>
-								Konfirmasi Kehadiran
+								Konfirmasi Kehadiran dengan id event <?php echo $this->input->get('id'); ?>
 							</header>
 
 							<fieldset>
@@ -180,6 +180,10 @@
 </script>
 
 <script type="text/javascript">
+	$("input").on("paste",function(e){
+			$("#test").focus();
+	});
+
 	$(document).ready(function() {
 		$('#idreg').change(function() {
 			var reg = $(this).val();

@@ -22,7 +22,7 @@
         return $data->result_array();
     }
      public function GetPanitia1($id_event=""){
-        $data = $this->db->query(" select distinct nama,tipe_panitia,nama_jur,tlpn from v_event_detail ".$id_event);
+        $data = $this->db->query(" select distinct nama,tipe_panitia,nama_jur,tlpn from v_panitia_seminar ".$id_event);
         return $data->result_array();
     }
 

@@ -34,7 +34,7 @@
                 </div>
                 <div class="additional-info">
                     <span class="divider-h"></span>
-                    <a href="<?php echo base_url(); ?>auth/req/signup">Registrasi Panitia</a>
+                    <a href="<?php echo base_url(); ?>home/detail_event/2017101001#registration">Registrasi</a>
                     <span class="divider-h"></span>
                 </div>
             </div>

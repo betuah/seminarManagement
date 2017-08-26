@@ -9,8 +9,8 @@
 			$this->load->database();
 		}
 
-    public function get() {
-      $query = $this->db->get('tb_reg');
+    public function get($id) {
+      $query = $id == '' ? $this->db->get('tb_reg') : $this->db->get_where('tb_reg' , array('id_event' => $id));
       return $query->result_array();
     }
 

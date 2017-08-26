@@ -72,6 +72,9 @@ $route['auth/req/(:num)']                   = 'auth/req/$1';
   // QR Code
   $route['admin/qrcode/(:any)/(:any)']        = 'admin/ext/generate_qr_code/$1/$2';
 
+  // Panitia
+  $route['panitia']                           = 'auth/panitia';
+
   // PDF
   $route['admin/pdf/(:any)/(:any)']           = 'admin/ext/generate_pdf/$1/$2';
 

@@ -9,7 +9,7 @@
 			}
 
 			public function index()
-			{	
+			{
 				$data['judul'] = $this->user->GetEvent();
 				$this->load->view('v_index',$data);
 			}
@@ -23,7 +23,7 @@
 				$this->load->view('v_home',$data);
 			}
 
-			
+
 			public function data_event(){
 				$data['event'] = $this->user->GetEvent();
 				$this->load->view('v_home',$data);
@@ -56,8 +56,8 @@
 			public function detail_event($id_event){
 				$data['detail_event'] = $this->user->GetDetailEvent("where id_event = $id_event");
 				$data['speaker'] = $this->user->GetSpeaker("where id_event = $id_event");
-				$data['panitia'] = $this->user->GetPanitia1("where id_event = $id_event");
+				$data['panitia'] = $this->user->GetPanitia1("where id_event = '$id_event' AND status='1'");
 				$this->load->view('v_home',$data);
-		}		
+		}
 	}
 ?>

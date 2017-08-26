@@ -16,6 +16,12 @@ class Auth extends CI_Controller {
 		$this->load->view('index', $data);
 	}
 
+	public function panitia()
+	{
+		$data['req'] = 'signup';
+		$this->load->view('index', $data);
+	}
+
 	public function req($req = 'else')
 	{
 		$data['req'] 							= $req;
@@ -66,7 +72,7 @@ class Auth extends CI_Controller {
 			}
 
 			if ($this->session->userdata('level')=='1') {
-				redirect('Admin');
+				redirect('Admin?id=');
 			} else {
 				redirect('User');
 			}
@@ -83,7 +89,7 @@ class Auth extends CI_Controller {
 			}
 
 			if ($this->session->userdata('level')=='4' && $this->session->userdata('status')=='1') {
-				redirect('Admin');
+				redirect('Admin?id=');
 			} elseif ($this->session->userdata('level')=='4' && $this->session->userdata('status')=='0') {
 				echo "<SCRIPT LANGUAGE='JavaScript'>
 							window.alert('Maaf Akun Panitia Anda Belum Aktif Silahkan hubungi administrator pada prodi masing - masing')

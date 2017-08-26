@@ -31,6 +31,9 @@
 
 		public function v_content($content = 'index' , $pages = 'index') {
 			$this->load->helper('url');
+			// echo $_GET['id'];
+
+			$this->input->get('id') == '' ? $id = '' : $id = $this->input->get('id');
 
 			// Controller calling view data from model
 			$data['get_jur'] 					= $this->jurusan->get();
@@ -44,11 +47,11 @@
 			$data['get_periode']			= $this->periode->get();
 			$data['get_per'] 					= $this->periode->get_per();
 			$data['get_paper'] 				= $this->paper->get();
-			$data['get_absen'] 				= $this->absen->get();
+			$data['get_absen'] 				= $this->absen->get_id($id);
 			$data['get_byr'] 					= $this->bayar->get();
 			$data['get_c_paper'] 			= $this->cek_paper->get();
-			$data['get_reg'] 					= $this->reg->get();
-			$data['get_sertifikat'] 	= $this->sertifikat->get();
+			$data['get_reg'] 					= $this->reg->get($id);
+			$data['get_sertifikat'] 	= $this->sertifikat->get($id);
 			$data['count_usr']				= $this->user->count_all();
 			$data['count_event']			= $this->event->count_all();
 			$data['count_reg']				= $this->reg->count_all();
@@ -95,6 +98,15 @@
 			$data['id'] 							= $this->$pages->get_id($id);
 
 			$this->load->view('content/'. $content .'/edit/edit_' . $pages, $data);
+		}
+
+		public function kehadiran() {
+			// echo $id;
+			echo $id = $this->input->get('id');exit;
+
+			redirect(base_url('Admin#A_content/transaksi/absen?id=2017201003'));
+			// $this->load->view('content/transaksi'. $content .'/edit/edit_' . $pages, $data);
+
 		}
 
 		public function count($id) {

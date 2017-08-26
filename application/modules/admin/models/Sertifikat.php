@@ -9,8 +9,8 @@
 			$this->load->database();
 		}
 
-    public function get() {
-      $query = $this->db->get('v_sertifikat');
+    public function get($id) {
+      $query = $id == '' ? $this->db->get('v_sertifikat') : $this->db->get_where('tb_sertifikat' , array('id_event' => $id));
       return $query->result_array();
     }
 

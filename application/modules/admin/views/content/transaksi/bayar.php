@@ -69,7 +69,7 @@
 								<div class="row">
 									<section class="col col-xs-6">
 										<label class="input"> <i class="icon-append fa fa-money"></i>
-											<input type="text" id="tbyr" name="tbyr" placeholder="Total Bayar" >
+											<input type="text" id="tbyr" name="tbyr" placeholder="Total Bayar" readonly>
 										</label>
 									</section>
 									<section class="col col-6">
@@ -198,6 +198,7 @@
 									$('#tema').val('Tema : ' + res[0].judul_event);
 									$('#nama').val('Nama : ' +res[0].nama_usr);
 									$('#harga').val('Harga : Rp ' +res[0].harga);
+									$('#tbyr').val('Total : Rp ' +res[0].harga);
 					 	   } else {
 								 	$('#tema').val('');
 									$('#nama').val('');
@@ -209,6 +210,7 @@
 							$('#tema').val('Tema : ' + res[0].judul_event);
 							$('#nama').val('Nama : ' +res[0].nama_usr);
 							$('#harga').val('Harga : Rp ' +res[0].harga);
+							$('#tbyr').val('Total : Rp ' +res[0].harga);
 						}
 					}
 	 			},

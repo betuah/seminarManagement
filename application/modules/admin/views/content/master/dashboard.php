@@ -103,11 +103,7 @@
 															</tr>
 															<?php
 																	} else {
-															?>
-																	<tr>
-																		<td colspan="2">Tidak Ada Event Yang Akan Dilaksanakan</td>
-																	</tr>
-															<?php
+															
 																	}
 																}
 															?>

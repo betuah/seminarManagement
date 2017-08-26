@@ -257,8 +257,18 @@
 																<button type="button" name="evndel" class="btn btn-success" onclick="Daftar('<?php echo $v_event['id_event']; ?>')" data-toggle="modal" data-target="#regtambah" title="Daftar"><i class="fa fa-plus-circle"></i></button>
 															</li>
 															<li>
-																<a href="<?php echo base_url().'Admin#A_content/transaksi/absen?id='.$v_event['id_event'] ?>" title="Cek Kehadiran">
+																<a href="<?php echo base_url().'Admin?id='.$v_event['id_event'] ?>#A_content/transaksi/absen" title="Cek Kehadiran">
 																	<button type="button" name="evndel" class="btn btn-success"><i class="fa fa-list-alt"></i></button>
+																</a>
+															</li>
+															<li>
+																<a href="<?php echo base_url().'Admin?id='.$v_event['id_event'] ?>#A_content/transaksi/reg" title="Data Peserta">
+																	<button type="button" name="evndel" class="btn btn-success"><i class="fa fa-code-fork"></i></button>
+																</a>
+															</li>
+															<li>
+																<a href="<?php echo base_url().'Admin?id='.$v_event['id_event'] ?>#A_content/transaksi/sertifikat" title="Data Sertifikat">
+																	<button type="button" name="evndel" class="btn btn-success"><i class="fa fa-certificate"></i></button>
 																</a>
 															</li>
 															<li>
