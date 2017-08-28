@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2017-08-27 05:55:48
+Date: 2017-08-28 15:38:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -35,6 +35,7 @@ CREATE TABLE `tb_byr` (
 -- ----------------------------
 INSERT INTO `tb_byr` VALUES ('PAY0000000001', '15000', '2017-07-22', '20171010010001', '1');
 INSERT INTO `tb_byr` VALUES ('PAY0000000002', '65000', '2017-08-24', '20172010030001', '1');
+INSERT INTO `tb_byr` VALUES ('PAY0000000003', 'Total : Rp', '2017-08-28', '20171010040001', '1');
 
 -- ----------------------------
 -- Table structure for tb_event
@@ -69,7 +70,8 @@ CREATE TABLE `tb_event` (
 -- ----------------------------
 INSERT INTO `tb_event` VALUES ('2017101001', 'Judul Seminar 1', '2017-09-16', '2017-09-10', 'JRU001', '1', '15000', '100', '20171', 'AUDI', 'bg_event_1499489272.jpg', '0', 'Keterangan', '7');
 INSERT INTO `tb_event` VALUES ('2017101002', 'Judul Seminar 2', '2017-08-26', '2017-08-19', 'JRU001', '1', '50000', '1500', '20172', 'REKTORAT', 'bg_event_1499489303.jpg', '0', 'Keterangan', '7');
-INSERT INTO `tb_event` VALUES ('2017201003', 'Internet Of Things Untuk Pembangunan Kota Cerdas', '2017-09-28', '2017-09-27', 'JRU001', '1', '65000', '1200', '20172', 'REKTORAT', 'bg_event_1503551784.jpg', '0', null, null);
+INSERT INTO `tb_event` VALUES ('2017101004', 'Judul Seminar 1', '2017-10-14', '2017-10-13', 'JRU001', '1', '35000', '1000', '20171', 'REKTORAT', 'bg_event_1503907650.jpg', '0', null, '5');
+INSERT INTO `tb_event` VALUES ('2017201003', 'Internet Of Things Untuk Pembangunan Kota Cerdas', '2017-09-28', '2017-09-27', 'JRU001', '1', '65000', '1200', '20172', 'REKTORAT', 'bg_event_1503551784.jpg', '0', null, '5');
 
 -- ----------------------------
 -- Table structure for tb_jen_event
@@ -235,7 +237,7 @@ CREATE TABLE `tb_reg` (
   KEY `fk_event` (`id_event`) USING BTREE,
   KEY `fk_usr` (`id_usr`) USING BTREE,
   KEY `fk_to_jen_reg` (`id_jen_reg`),
-  CONSTRAINT `fk_to_evnt` FOREIGN KEY (`id_event`) REFERENCES `tb_event` (`id_event`) ON UPDATE CASCADE,
+  CONSTRAINT `fk_to_evnt` FOREIGN KEY (`id_event`) REFERENCES `tb_event` (`id_event`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_to_jen_reg` FOREIGN KEY (`id_jen_reg`) REFERENCES `tb_jen_reg` (`id_jen_reg`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `fk_to_usr` FOREIGN KEY (`id_usr`) REFERENCES `tb_usr` (`id_usr`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -246,6 +248,7 @@ CREATE TABLE `tb_reg` (
 INSERT INTO `tb_reg` VALUES ('20171010010001', '2013143067', '1', '2017-07-21', '2017101001', 'barcode_150113726120171010010002.jpg', '2', null);
 INSERT INTO `tb_reg` VALUES ('20171010010002', '2013142092', '1', '2017-07-27', '2017101001', 'barcode_150113726120171010010002.jpg', '0', '2017-08-03');
 INSERT INTO `tb_reg` VALUES ('20171010010003', '2015143067', '1', '2017-08-25', '2017101001', 'barcode_150365704720171010010003.jpg', '0', '2017-09-01');
+INSERT INTO `tb_reg` VALUES ('20171010040001', 'betuah@seamolec.org', '1', '2017-08-28', '2017101004', 'barcode_150390766920171010040001.jpg', '2', '2017-09-02');
 INSERT INTO `tb_reg` VALUES ('20172010030001', '2015143067', '1', '2017-08-24', '2017201003', 'barcode_150355409820172010030001.jpg', '2', '2017-09-03');
 
 -- ----------------------------
@@ -267,6 +270,7 @@ CREATE TABLE `tb_sertifikat` (
 -- Records of tb_sertifikat
 -- ----------------------------
 INSERT INTO `tb_sertifikat` VALUES ('820171010010001', '20171010010001', '1', '2017101001', null);
+INSERT INTO `tb_sertifikat` VALUES ('820171010040001', '20171010040001', '1', '2017101004', null);
 INSERT INTO `tb_sertifikat` VALUES ('820172010030001', '20172010030001', '1', '2017201003', null);
 
 -- ----------------------------
@@ -285,7 +289,7 @@ CREATE TABLE `tb_speaker` (
   PRIMARY KEY (`id_speaker`),
   KEY `fk_evnt` (`id_event`),
   CONSTRAINT `fk_evnt` FOREIGN KEY (`id_event`) REFERENCES `tb_event` (`id_event`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tb_speaker
@@ -299,6 +303,9 @@ INSERT INTO `tb_speaker` VALUES ('15', '2017101002', 'Rikimaru', 'Institusi03', 
 INSERT INTO `tb_speaker` VALUES ('18', '2017201003', 'asdas1', 'asdasd', 'speakers_15035517840.jpg', '1111111', 'asdas@asdasd.asd', null);
 INSERT INTO `tb_speaker` VALUES ('19', '2017201003', 'asdas2', 'asdasd', 'speakers_15035517841.jpg', '1111111', 'asdas@asdasd.asd', null);
 INSERT INTO `tb_speaker` VALUES ('20', '2017201003', 'asdas3', 'asdasd', 'speakers_15035517842.jpg', '1111111', 'asdas@asdasd.asd', null);
+INSERT INTO `tb_speaker` VALUES ('24', '2017101004', 'asdasd', 'asdasd', 'speakers_15039076500.jpg', '12312323', 'asdas@asdasd.asd', null);
+INSERT INTO `tb_speaker` VALUES ('25', '2017101004', 'asdasd1', 'asdasd', 'speakers_15039076501.jpg', '12312323', 'asdas@asdasd.asd', null);
+INSERT INTO `tb_speaker` VALUES ('26', '2017101004', 'asdasd2', 'asdasd', 'speakers_15039076502.jpg', '12312323', 'asdas@asdasd.asd', null);
 
 -- ----------------------------
 -- Table structure for tb_type_usr
@@ -348,6 +355,7 @@ INSERT INTO `tb_usr` VALUES ('2015143067', 'Polinier', 'a8f5f167f44f4964e6c998de
 INSERT INTO `tb_usr` VALUES ('2017143067', 'asdasd', 'a8f5f167f44f4964e6c998dee827110c', 'asdasdasd@asdsa.asd', 'Laki-laki', '12312312312', 'asdasdasdas asda sdas asd asda sdas asd', '2017-08-21', '3', 'mahasiswa');
 INSERT INTO `tb_usr` VALUES ('admin@semnas.com', 'Admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@semnas.com', 'Pria', '082311428337', 'Alamat', '2017-07-07', '1', 'Dosen');
 INSERT INTO `tb_usr` VALUES ('asd@asd.asd', 'Test', '7815696ecbf1c96e6894b779456d330e', 'asd@asd.asd', 'Laki-laki', '082929292929', 'asd', '2017-08-26', '3', 'external');
+INSERT INTO `tb_usr` VALUES ('betuah@seamolec.org', 'Betuah Anugerah', 'e716f5f9ab300aa5e3d62147d0d35ca3', 'betuah@seamolec.org', 'Laki-laki', '082311428337', 'Prum BIP Blok A 14 No 01 RT 01 RW 13, Kec tajurhalang, kab bogor', '2017-08-28', '3', 'external');
 
 -- ----------------------------
 -- View structure for api_byr

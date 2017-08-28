@@ -66,10 +66,17 @@
 			$data['sum_byr']					= $this->bayar->sum();
 
 			// Controller Routing (View Pages)
-			if ($content != 'index' && $pages != 'index') {
-				$this->load->view('content/'.$content.'/'.$pages , $data);
+			if ($this->session->userdata('level')=='1' || $this->session->userdata('level')=='4') {
+				if ($content != 'index' && $pages != 'index') {
+					$this->load->view('content/'.$content.'/'.$pages , $data);
+				} else {
+					$this->load->view($content);
+				}
 			} else {
-				$this->load->view($content);
+				echo "<SCRIPT LANGUAGE='JavaScript'>
+               window.alert('Anda Tidak Di Izinkan mengakses halaman tersebut')
+               window.history.back()
+               </SCRIPT>";
 			}
 		}
 
@@ -119,11 +126,12 @@
 		}
 
 		public function update($content, $pages , $id) {
+			$tmp 							= $this->input->get('id') == '' ? '' : $this->input->get('id');
 			$updt 						= $this->$pages->update($id);
 			$data['get_jur'] 	= $this->$pages->get();
 
 			if ($updt == '1') {
-				redirect('Admin#A_content/'.$content.'/'.$pages , $data);
+				$tmp == '' ? redirect('Admin#A_content/'.$content.'/'.$pages , $data) : redirect('Admin?id='.$tmp.'#A_content/'.$content.'/'.$pages , $data);
 			} else {
 				echo $updt;
 			}

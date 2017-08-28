@@ -59,6 +59,7 @@
         $this->form_validation->set_rules('quota','Quota','required');
         $this->form_validation->set_rules('periode','periode','required');
         $this->form_validation->set_rules('idloc','alamat','required');
+        $this->form_validation->set_rules('batas_byr','batas_byr','required');
         $this->form_validation->set_rules('nama[]','Nama','required');
         $this->form_validation->set_rules('tlpn[]','No Telepon','required');
         $this->form_validation->set_rules('email[]','Email','required');
@@ -105,6 +106,7 @@
                       'quota'           => $this->input->post('quota'),
                       'id_periode'      => $this->input->post('periode'),
                       'id_lokasi'       => $this->input->post('idloc'),
+                      'batas_bayar'     => $this->input->post('batas_byr'),
                       'foto'            => $file['file_name'],
                       'status'          => "0"
                     );
@@ -214,6 +216,7 @@
         $this->form_validation->set_rules('id_jur','Jurusan','required');
         $this->form_validation->set_rules('jen_evn','Jenis','required');
         $this->form_validation->set_rules('hrg','Harga','required');
+        $this->form_validation->set_rules('batas_byr','batas_byr','required');
         $this->form_validation->set_rules('quota','Quota','required');
         $this->form_validation->set_rules('periode','periode','required');
         $this->form_validation->set_rules('idloc','alamat','required');
@@ -249,6 +252,7 @@
                       'quota'           => $this->input->post('quota'),
                       'id_periode'      => $this->input->post('periode'),
                       'id_lokasi'       => $this->input->post('idloc'),
+                      'batas_bayar'     => $this->input->post('batas_byr'),
                       'foto'            => $file['file_name']
                       //'status'          => "0"
                     );

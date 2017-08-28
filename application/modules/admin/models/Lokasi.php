@@ -25,7 +25,7 @@
       $data = array(
         'id_lokasi'       => $this->input->post('idloc'),
         'nama_ruangan'    => $this->input->post('namaru'),
-        'lokasi'          => $this->input->post('lok'),
+        'lokasi'          => $this->input->post('loc'),
         'alamat'          => $this->input->post('alamat'),
         'lat'             => $this->input->post('lat'),
         'long'            => $this->input->post('long')

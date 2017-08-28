@@ -24,6 +24,7 @@
     public function update($id) {
       $ide = $this->input->post('ide');
       $id  = $this->input->post('noreg');
+      $tmp = $this->input->get('id') == '' ? '' : $this->input->get('id');
 
       $sql = "SELECT status FROM tb_reg WHERE (id_reg = '".$id."' or id_usr = '".$id."') AND id_event = '".$ide."'";
 
@@ -35,7 +36,7 @@
       if ($cek->num_rows() == 1) {
         return $mssg = "<SCRIPT LANGUAGE='JavaScript'>
               window.alert('Peserta dengan nomor registrasi ".$this->input->post('noreg')." Sudah melakukan Absensi')
-              window.location.href='".base_url()."Admin#A_content/transaksi/absen';
+              window.location.href='".base_url()."Admin?id=".$tmp."#A_content/transaksi/absen';
               </SCRIPT>";
       } else {
 
@@ -48,7 +49,7 @@
           if ($stat == '0') {
             return $mssg = "<SCRIPT LANGUAGE='JavaScript'>
                   window.alert('Peserta dengan nomor registrasi ".$this->input->post('noreg')." Belum melakukan pembayar')
-                  window.location.href='".base_url()."Admin#A_content/transaksi/absen';
+                  window.location.href='".base_url()."Admin?id=".$tmp."#A_content/transaksi/absen';
                   </SCRIPT>";
           } else {
             $this->form_validation->set_rules('noreg','IDR','required');
@@ -57,7 +58,7 @@
             if ($this->form_validation->run() == FALSE) {
               return $mssg = "<SCRIPT LANGUAGE='JavaScript'>
                     window.alert('Pastikan Semua data telah terisi ')
-                    window.location.href='".base_url()."Admin#A_content/transaksi/absen';
+                    window.location.href='".base_url()."Admin?id=".$tmp."#A_content/transaksi/absen';
                     </SCRIPT>";
             } else {
               $ids = $this->input->post('noreg');
@@ -72,7 +73,7 @@
         } else {
           return $mssg = "<SCRIPT LANGUAGE='JavaScript'>
                 window.alert('ID Registrasi yang Anda masukan tidak tersedia')
-                window.location.href='".base_url()."Admin#A_content/transaksi/absen';
+                window.location.href='".base_url()."Admin?id=".$tmp."#A_content/transaksi/absen';
                 </SCRIPT>";
         }
       }

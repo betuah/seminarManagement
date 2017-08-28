@@ -40,7 +40,7 @@
 
 					<!-- widget content -->
 					<div class="widget-body no-padding">
-						<form action="<?php echo base_url() . 'admin/update/transaksi/absen/1'?>" method="post" class="smart-form">
+						<form action="<?php echo base_url() . 'admin/update/transaksi/absen/1?id='.$this->input->get('id');?>" method="post" class="smart-form">
 							<header>
 								Konfirmasi Kehadiran dengan id event <?php echo $this->input->get('id'); ?>
 							</header>

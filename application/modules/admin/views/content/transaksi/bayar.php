@@ -116,7 +116,7 @@
 				          <th data-class="expand">ID Pembayaran</th>
 				          <th data-class="expand">No Reg</th>
 				          <th data-class="expand">Status</th>
-				          <th data-class="expand">Total Bayar</th>
+				          
 				          <th data-class="expand">Tanggal Bayar</th>
 									<th data-class="expand">Action</th>
 					      </tr>
@@ -135,7 +135,7 @@
 															}
 														?>
 													</td>
-					                <td>Rp <?php echo $v_byr['total_bayar'] ?></td>
+
 													<td><?php echo $v_byr['tgl_bayar'] ?></td>
 													<td>
 														<ul class="demo-btns">
