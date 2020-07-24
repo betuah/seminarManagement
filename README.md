@@ -1,7 +1,13 @@
 # semnas_apps
 
 Sistem Informasi Seminar Nasional Project's
-Author : Betuah Anugerah
+
+> **Desc :** This project was created to simplify the process of organizing seminars at the Pamulang University Engineering Campus.
+
+## About Author
+- **Name :** Betuah Anugerah
+- **Email :** betuahanugerah@gmail.com
+- **Github :** [My Github Libraries](https://github.com/betuah/)
 
 Developer team :
 
